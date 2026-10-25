@@ -1,12 +1,12 @@
-# Flood Alpha — lauffähiger Python-Prototyp mit echten Daten
+# Flood Alpha — runnable Python prototype with real data
 
-Historische Fallstudie der Überflutung von Canoas, Brasilien, Mai 2024.
+Historical case study of the Canoas, Brazil flood, May 2024.
 
-Die Anwendung verbindet echte Satellitenbilder mit historischen Industriestandorten und Straßen, erstellt eine Expositions-Watchlist, prüft eine einfache 15-Tage-Prognose und rechnet eine feste hypothetische Börsenposition mit echten AGCO-/SPY-Kursen durch.
+The application links real satellite imagery with historical industrial sites and roads, builds an exposure watchlist, tests a simple 15-day forecast, and runs through a fixed hypothetical stock position using real AGCO/SPY prices.
 
-## Start
+## Getting started
 
-Python 3.10 oder neuer, empfohlen 3.12–3.14. ZIP entpacken und im Ordner `flood_alpha`:
+Python 3.10 or newer, recommended 3.12–3.14. Unpack the ZIP and in the `flood_alpha` folder:
 
 ```bash
 python3 -m venv .venv
@@ -15,126 +15,126 @@ python -m pip install -r requirements.txt
 python app.py
 ```
 
-Im Browser öffnen: **http://127.0.0.1:8765**
+Open in browser: **http://127.0.0.1:8765**
 
-Windows: statt `source` den Befehl `.venv\Scripts\activate` verwenden; gegebenenfalls `python` statt `python3`.
+Windows: use the command `.venv\Scripts\activate` instead of `source`; use `python` instead of `python3` if needed.
 
-Auf macOS/Linux alternativ `bash run.sh`. Die erste Installation braucht Internet. Danach läuft die mitgelieferte Fallstudie vollständig offline: keine API-Schlüssel, keine externen Kartenkacheln, keine Cloud-Anwendung. Die mitgelieferten Daten sind echte heruntergeladene Ausschnitte, keine simulierten Bilder.
+On macOS/Linux, alternatively `bash run.sh`. The first installation requires internet access. After that, the bundled case study runs fully offline: no API keys, no external map tiles, no cloud application. The bundled data are real downloaded extracts, not simulated images.
 
-## Demo in drei Minuten
+## Three-minute demo
 
-1. Auf **21. Apr · vorher** klicken: die Situation vor der Flut.
-2. Auf **06. Mai · Signal** wechseln: neue Wasserflächen und Standortexposition erkunden.
-3. Standort in der Tabelle anklicken. Direkte Exposition und nasse Straßen im Umfeld sind getrennt ausgewiesen. AGCO South America befindet sich ebenfalls in der Liste.
-4. Die feste hypothetische Tradingregel für AGCO ansehen. Ihr Kursausgang bleibt zunächst verborgen.
-5. **15 Tage vorspulen**: die Aufnahme vom 21. Mai, Fehlerkarte, Prognosemetriken und den tatsächlichen Kursverlauf aufdecken.
-6. CSV oder JSON exportieren. Parameter ändern und die Empfindlichkeit untersuchen. Nach dem Aufdecken sind Änderungen explorativ, kein neuer unberührter Test.
+1. Click **Apr 21 · before**: the situation before the flood.
+2. Switch to **May 6 · signal**: explore new water areas and site exposure.
+3. Click a site in the table. Direct exposure and wet roads in the surrounding area are reported separately. AGCO South America is also in the list.
+4. View the fixed hypothetical trading rule for AGCO. Its price outcome stays hidden for now.
+5. **Fast-forward 15 days**: reveal the May 21 image, error map, forecast metrics, and the actual price trajectory.
+6. Export CSV or JSON. Change parameters and explore sensitivity. After the reveal, changes are exploratory, not a new untouched test.
 
-## Daten und Zeitpunkte
+## Data and timing
 
-| Bestandteil | Herkunft | Zeitraum |
+| Component | Source | Period |
 |---|---|---|
-| Vorher-Aufnahme | Copernicus Sentinel-2 L2A, Kachel 22JDN | 21.04.2024 |
-| Signal-Aufnahme | Copernicus Sentinel-2 L2A, Kachel 22JDN | 06.05.2024 |
-| Spätere Beobachtung | Copernicus Sentinel-2 L2A, Kachel 22JDN | 21.05.2024 |
-| Industriestandorte, Straßen, Brücken | Historischer OpenStreetMap-Snapshot via Overpass | 24.04.2024 |
-| AGCO und SPY | Yahoo Finance, tägliche Open-/Close-Kurse und Dividenden | April–Juni 2024 |
-| Zuordnung AGCO ↔ Canoas | AGCO Form 10-K 2023, SEC | vor dem Ereignis veröffentlicht |
+| Before image | Copernicus Sentinel-2 L2A, tile 22JDN | 2024-04-21 |
+| Signal image | Copernicus Sentinel-2 L2A, tile 22JDN | 2024-05-06 |
+| Later observation | Copernicus Sentinel-2 L2A, tile 22JDN | 2024-05-21 |
+| Industrial sites, roads, bridges | Historical OpenStreetMap snapshot via Overpass | 2024-04-24 |
+| AGCO and SPY | Yahoo Finance, daily open/close prices and dividends | April–June 2024 |
+| AGCO ↔ Canoas mapping | AGCO Form 10-K 2023, SEC | published before the event |
 
-Analysegebiet: 51.30°W bis 51.07°W, 29.91°S bis 29.74°S. Gemeinsames Raster: EPSG:32722, 20 m, 1114 × 945 Pixel. Die Reflektanzbänder B02/B03/B04/B11 und die Szenenklassifikation SCL liegen komprimiert in `data/`. Die Einzelaufnahmen, ursprüngliche STAC-Metadaten, Original-OSM-Objekte, Marktpreisantworten und SHA-256-Prüfsummen werden mitgeliefert. Es werden keine vorübergehend signierten Download-URLs gespeichert.
+Analysis area: 51.30°W to 51.07°W, 29.91°S to 29.74°S. Common grid: EPSG:32722, 20 m, 1114 × 945 pixels. The reflectance bands B02/B03/B04/B11 and the scene classification layer SCL are stored compressed in `data/`. The individual scenes, original STAC metadata, original OSM objects, market price responses, and SHA-256 checksums are included. No temporarily signed download URLs are stored.
 
-Primärquellen und Zugriff:
+Primary sources and access:
 
 - [Planetary Computer / Sentinel-2](https://planetarycomputer.microsoft.com/dataset/sentinel-2-l2a)
 - [Copernicus Sentinel-2](https://www.esa.int/Applications/Observing_the_Earth/Copernicus/Sentinel-2)
-- [Historische Overpass-Abfragen](https://wiki.openstreetmap.org/wiki/Overpass_API/Overpass_QL#date)
+- [Historical Overpass queries](https://wiki.openstreetmap.org/wiki/Overpass_API/Overpass_QL#date)
 - [AGCO 2023 10-K, SEC](https://www.sec.gov/Archives/edgar/data/880266/000088026624000013/agco-20231231.htm)
-- Die exakten Szenen- und Daten-URLs stehen in `data/manifest.json` und `data/market_manifest.json`.
+- The exact scene and data URLs are in `data/manifest.json` and `data/market_manifest.json`.
 
-Der Archivabruf erfolgte bei Erstellung des Prototyps. Aufnahmedatum und heutige STAC-Metadaten beweisen nicht, wann ein Marktteilnehmer damals das Bild hätte erhalten können. Historische Veröffentlichungs- und Verarbeitungslatenzen sind nicht rekonstruiert.
+The archive retrieval took place when the prototype was created. Acquisition date and today's STAC metadata do not prove when a market participant could actually have received the image at the time. Historical publication and processing latencies have not been reconstructed.
 
-## Was berechnet wird
+## What is computed
 
-### Wassererkennung
+### Water detection
 
-MNDWI = (B03 − B11) / (B03 + B11), auf Reflektanzen mit korrekter Skalierung und additivem Offset. Die Bänder werden auf ein gemeinsames 20-m-Raster gebracht. SCL-Klassen 0, 1, 2, 3, 8, 9, 10 und 11 werden ausgeschlossen, um ungültige Pixel, dunkle Flächen, Schatten, Wolken und Schnee zu maskieren. Der Maskenrand wird um zwei Pixel erweitert.
+MNDWI = (B03 − B11) / (B03 + B11), on reflectances with correct scaling and additive offset. The bands are brought onto a common 20 m grid. SCL classes 0, 1, 2, 3, 8, 9, 10, and 11 are excluded to mask invalid pixels, dark areas, shadows, clouds, and snow. The mask edge is expanded by two pixels.
 
-Neue Wasserpixel am 6. Mai erfüllen gleichzeitig:
+New water pixels on May 6 simultaneously satisfy:
 
-- am 21. April und 6. Mai gültig;
-- vorher MNDWI ≤ Wasserschwelle;
-- am 6. Mai MNDWI > Wasserschwelle;
-- MNDWI-Zunahme > Änderungsschwelle.
+- valid on April 21 and May 6;
+- before: MNDWI ≤ water threshold;
+- on May 6: MNDWI > water threshold;
+- MNDWI increase > change threshold.
 
-Zusammenhängende Flecken mit weniger als 25 Pixeln (1 ha) werden entfernt. Startwerte: Wasserschwelle 0.15, Änderungsschwelle 0.18. Das ist eine nachvollziehbare spektrale Heuristik, kein trainiertes Segmentierungsmodell. Es wird kein erfundenes Genauigkeitsmaß der Fluterkennung angegeben.
+Connected patches smaller than 25 pixels (1 ha) are removed. Default values: water threshold 0.15, change threshold 0.18. This is a traceable spectral heuristic, not a trained segmentation model. No invented flood-detection accuracy figure is given.
 
-### Exposition
+### Exposure
 
-Die OSM-Industrieflächen werden mit neuem Wasser verschnitten. OSM-Punktobjekte haben kein belegtes Fabrikpolygon und werden ausdrücklich als 60-m-Näherung markiert. Generische Industrieflächen, die benannte Produktionsstätten enthalten, werden entfernt, um einige Doppelzählungen zu vermeiden; vollständige Entity-Auflösung ist nicht garantiert.
+The OSM industrial areas are intersected with new water. OSM point objects have no documented factory polygon and are explicitly flagged as a 60 m approximation. Generic industrial areas that contain named production sites are removed to avoid some double counting; full entity resolution is not guaranteed.
 
-Straßen werden mit einem 10-m-Puffer gerastert. Der Anteil nasser Straßenpixel im einstellbaren Standortumfeld ist ein Prüfhinweis. Brücken und Tunnel sind ausgenommen. Es findet **keine** Verkehrsflussanalyse und **kein** Nachweis fehlender Alternativrouten statt.
+Roads are rasterized with a 10 m buffer. The share of wet road pixels in the adjustable site surroundings is an indicative check value. Bridges and tunnels are excluded. There is **no** traffic-flow analysis and **no** proof of missing alternative routes.
 
-Prüfindex = 70 × direkt exponierter Flächenanteil + 30 × nasser Straßenanteil. Standorte mit weniger als 80 % gültiger Flächenabdeckung werden nicht bewertet. Dieser Index ist keine kalibrierte Ausfallwahrscheinlichkeit.
+Exposure index = 70 × directly exposed area share + 30 × wet road share. Sites with less than 80% valid area coverage are not scored. This index is not a calibrated failure probability.
 
-### Echte Vorwärtsprognose mit einfachem Modell
+### Real forward forecast with a simple model
 
-Der am 6. Mai eingefrorene Persistenzansatz sagt: Neu erkannte Wasserflächen bleiben am 21. Mai nass. Der Zukunftsdatensatz wird bei der Prognose und dem Standort-Ranking nicht benutzt; das wird getestet. Erst die Auswertung greift darauf zu.
+The persistence approach, frozen on May 6, predicts: newly detected water areas remain wet on May 21. The future dataset is not used in the forecast or the site ranking; that is what is being tested. Only the evaluation accesses it.
 
-F1, Präzision, Recall und IoU werden nur auf in allen drei Aufnahmen gültigen, zuvor trockenen Pixeln berechnet. Die Vergleichsmethode lautet „keine neue Wasserfläche“. Das ist absichtlich eine schwache Referenz. Ein sinnvoller Wetter-/Pegelvergleich fehlt noch.
+F1, precision, recall, and IoU are computed only on pixels valid in all three images that were previously dry. The baseline method is "no new water area." This is deliberately a weak baseline. A meaningful weather/gauge comparison is still missing.
 
-Die Referenz vom 21. Mai entsteht aus **demselben Sensor und demselben Wasserindex**. Sie ist eine spätere Beobachtung, keine unabhängige Ground Truth. Die Metriken bewerten Wasserpersistenz, keine Betriebsunterbrechungen. Es ist ein einziges räumlich zusammenhängendes Ereignis; Pixel sind keine unabhängigen Testfälle.
+The May 21 reference comes from the **same sensor and the same water index**. It is a later observation, not independent ground truth. The metrics evaluate water persistence, not operational disruption. It is a single spatially contiguous event; pixels are not independent test cases.
 
-### Hypothetische Tradingregel mit echten Preisen
+### Hypothetical trading rule with real prices
 
-Die AGCO-OSM-Fläche `way/475623590` wird anhand des Namens und des in der SEC-Unternehmensquelle belegten Standorts Canoas zugeordnet. Diese Zuordnung ist manuell kuratiert, keine automatische globale Unternehmensauflösung.
+The AGCO OSM area `way/475623590` is matched to the Canoas site based on the name and the location documented in the SEC company filing. This mapping is manually curated, not an automatic global company resolution.
 
-Fest implementierte Demonstrationsregel: ≥5 % direkte Flächenexposition oder ≥10 % nasses Straßenumfeld → Short AGCO und Long SPY mit jeweils 1 USD Ausgangsnotional; sonst keine Position. Keine Order wird gesendet. Einstieg am 7. Mai 2024 zum Open, Ausstieg am 21. Mai zum Close. Zeitraum, Instrumente und Schwellen sind eine rückblickend konzipierte Fallstudie, kein vorab registrierter Handelstest.
+Hard-coded demonstration rule: ≥5% direct area exposure or ≥10% wet road surroundings → short AGCO and long SPY with 1 USD initial notional each; otherwise no position. No order is sent. Entry on May 7, 2024 at the open, exit on May 21 at the close. Period, instruments, and thresholds form a retrospectively designed case study, not a pre-registered trading test.
 
-- Stückzahlen werden beim Einstieg aus dem Preis berechnet und nicht täglich neu gewichtet.
-- Cash-Dividenden zwischen Einstieg und Ausstieg werden als Gutschrift bzw. Short-Verpflichtung berücksichtigt; keine Wiederanlage.
-- Transaktionskosten: 10 Basispunkte pro Ausführung auf das anfängliche Notional, vier Ausführungen.
-- Aktienleihe: pauschal 5 % p.a. auf 1 USD Short-Notional für die Kalendertage.
-- Angezeigte Nettorendite = Netto-P&L / 2 USD anfänglicher Bruttoexposition. Sie ist keine Rendite auf Margin oder unbekanntes Eigenkapital.
-- SPY ist ein grober Dollar-Marktvergleich, kein Beta- oder Sektorhedge. Finanzierung, tatsächliche Leihverfügbarkeit, variable Leihkosten, Steuern und Slippage über den pauschalen Kostensatz hinaus fehlen.
+- Share counts are calculated from the price at entry and are not reweighted daily.
+- Cash dividends between entry and exit are credited or charged as a short liability; no reinvestment.
+- Transaction costs: 10 basis points per execution on the initial notional, four executions.
+- Stock borrow: flat 5% p.a. on 1 USD short notional for the calendar days held.
+- Displayed net return = net P&L / 2 USD initial gross exposure. It is not a return on margin or unknown equity.
+- SPY is a rough dollar market comparison, not a beta or sector hedge. Financing, actual borrow availability, variable borrow costs, taxes, and slippage beyond the flat cost rate are not included.
 
-**Ein positives Ergebnis belegt weder Kausalität noch handelbares Alpha.** Es fehlt insbesondere der Vergleich mit zeitgleich verfügbaren Nachrichten, Wetterdaten und Pegeln. Die Aktienkurse können aus vielen anderen Gründen reagieren. Aus Satellitenbildern werden keine internen Maschinenschäden oder bestätigten Betriebsunterbrechungen abgeleitet. Zulieferbeziehungen sind nicht erfunden oder als Platzhalter eingetragen.
+**A positive result proves neither causality nor tradable alpha.** In particular, a comparison with contemporaneously available news, weather data, and river gauges is missing. Stock prices can react for many other reasons. No internal machine damage or confirmed operational disruption is inferred from satellite imagery. Supplier relationships are not invented or entered as placeholders.
 
-## Dateien
+## Files
 
-- `app.py`: lokaler HTTP-Server, CSV-/JSON-Export, Parameterprüfung.
-- `model.py`: Rasterverarbeitung, Wassererkennung, Standortanalyse, spätere Auswertung.
-- `market.py`: reproduzierbarer Kursdownload, feste Handelsregel, hypothetische Ergebnisrechnung.
-- `fetch_data.py`: API-Abfragen und räumliche Downloads; Wiederaufnahme vorhandener Bildausschnitte.
-- `web/index.html`: lokale Oberfläche, interaktive Karte, Zukunft aufdecken, Ergebnisgrafik.
-- `data/`: echte Daten, Metadaten und Herkunft.
-- `tests/test_core.py`: numerische Prüfung, Datenintegrität, Zukunftstrennung und Kostenrechnung.
-- `analysis.json`, `validation.json`, `event_study.json`: vorberechnete Ergebnisse mit Startparametern.
+- `app.py`: local HTTP server, CSV/JSON export, parameter validation.
+- `model.py`: raster processing, water detection, site analysis, later evaluation.
+- `market.py`: reproducible price download, fixed trading rule, hypothetical outcome calculation.
+- `fetch_data.py`: API queries and spatial downloads; resumes existing image extracts.
+- `web/index.html`: local interface, interactive map, future reveal, results chart.
+- `data/`: real data, metadata, and provenance.
+- `tests/test_core.py`: numerical checks, data integrity, future-data separation, and cost calculation.
+- `analysis.json`, `validation.json`, `event_study.json`: precomputed results with default parameters.
 
-## Neu berechnen, Daten herunterladen und testen
+## Recompute, download data, and test
 
 ```bash
-# Vorbereitete Ergebnisse neu berechnen
+# Recompute prepared results
 python app.py --export
 
-# Tests mit mitgelieferten Daten
+# Tests with bundled data
 python -m unittest discover -s tests -v
 
-# Daten vollständig neu herunterladen (Internet erforderlich)
+# Fully re-download data (internet required)
 python fetch_data.py --force
 
-# Nur Kurse erneut herunterladen
+# Re-download only prices
 python market.py
 
-# Anderen lokalen Port verwenden
+# Use a different local port
 python app.py --port 8766
 ```
 
-Die archivierten Daten ermöglichen eine stabile Offline-Demo. Erneute Downloads hängen von der Erreichbarkeit, Verfügbarkeit und den Limits der externen APIs ab. Yahoo Finance ist kein vertraglich garantierter Marktdatenfeed. Bei Fehlern bricht der Download ab; es werden keine synthetischen Ersatzdaten erzeugt.
+The archived data enable a stable offline demo. Re-downloads depend on the reachability, availability, and limits of the external APIs. Yahoo Finance is not a contractually guaranteed market data feed. On error, the download aborts; no synthetic substitute data is generated.
 
-## Nächster sinnvoller Forschungsschritt
+## Next sensible research step
 
-Mehrere Ereignisse und Regionen vorab festlegen, zeitgenössische Nachrichten/Wetter/Pegel samt Veröffentlichungszeitpunkten sichern, tatsächliche Unterbrechungen unabhängig labeln und anschließend dieselbe Prognose mit und ohne Bilddaten vergleichen. Erst dann lässt sich die ursprüngliche Frage nach notwendiger Satelliteninformation belastbar beantworten.
+Pre-register several events and regions, secure contemporaneous news/weather/gauge data along with their publication timestamps, independently label actual disruptions, and then compare the same forecast with and without imagery data. Only then can the original question of necessary satellite information be answered robustly.
 
-## Datenrechte
+## Data rights
 
-Enthält modifizierte Copernicus Sentinel-Daten 2024; siehe [Copernicus-Rechte](https://www.copernicus.eu/en/access-data/copyright-and-licences). © OpenStreetMap-Mitwirkende, [ODbL 1.0 / Namensnennung](https://www.openstreetmap.org/copyright). OSM-Ausschnitte bleiben ODbL-lizenziert. Kursdaten sind für diese lokale Demonstration beigefügt; bei Veröffentlichung oder Weiterverteilung gelten die Nutzungsbedingungen des Datenanbieters, insbesondere keine pauschal zugesicherte Open-Data-Lizenz. Der Anwendungscode steht unter MIT (siehe LICENSE).
+Contains modified Copernicus Sentinel data 2024; see [Copernicus rights](https://www.copernicus.eu/en/access-data/copyright-and-licences). © OpenStreetMap contributors, [ODbL 1.0 / attribution](https://www.openstreetmap.org/copyright). OSM extracts remain ODbL-licensed. Price data is included for this local demonstration; publication or redistribution is subject to the data provider's terms of use, in particular there is no blanket open-data license guarantee. The application code is under MIT (see LICENSE).

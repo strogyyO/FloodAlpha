@@ -1,22 +1,22 @@
 # Flood Alpha V2
 
-Lauffähiger Python-Prototyp mit eigenem trainiertem Wasserklassifikator, historischer Referenz und transparenter Modellprüfung.
+Runnable Python prototype with its own trained water classifier, historical reference, and transparent model validation.
 
-**Neu:** sechs Sentinel-2-Bänder, 16 spektrale Merkmale, separate Kalibrierung und Tests auf komplett zurückgehaltenen Länderereignissen. Der zusätzlich trainierte Zeitkandidat wurde nach schlechter späterer Leistung zurückgewiesen; Persistenz bleibt die aktive Zukunftsregel.
+**New:** six Sentinel-2 bands, 16 spectral features, separate calibration, and testing on fully held-out country events. The additionally trained temporal candidate was rejected after poor later-period performance; persistence remains the active forecasting rule.
 
-- [Modellergebnisse und Grenzen](MODELLBERICHT.md)
-- [Methode, Daten, Training und Reproduktion](README_V2.md)
-- [Ursprünglicher V1-Stand](README_V1.md)
+- [Model results and limitations](MODELLBERICHT.md)
+- [Method, data, training, and reproduction](README_V2.md)
+- [Original V1 state](README_V1.md)
 
-## Start
+## Getting started
 
-Empfohlen: Python 3.12–3.14. Im entpackten Ordner `flood_alpha`:
+Recommended: Python 3.12–3.14. In the unpacked `flood_alpha` folder:
 
 ```bash
 bash run.sh
 ```
 
-Alternativ:
+Alternatively:
 
 ```bash
 python3 -m venv .venv
@@ -25,17 +25,17 @@ python -m pip install -r requirements.txt
 python app.py
 ```
 
-Windows: `.venv\Scripts\activate` statt `source .venv/bin/activate`.
+Windows: use `.venv\Scripts\activate` instead of `source .venv/bin/activate`.
 
 Browser: http://127.0.0.1:8765
 
-Die erste Bibliotheksinstallation benötigt Internet. Danach arbeitet die gebündelte Demo offline. Keine API-Schlüssel und keine externen Kartenkacheln.
+The first library installation requires internet access. After that, the bundled demo runs fully offline. No API keys and no external map tiles.
 
-## Oberfläche
+## Interface
 
-Die Karte bietet aktuelle Wassererkennung, Wasserscores, Unsicherheit, die alte V1-Regel und die freigegebene Tag-15-Prognose. Die spätere Beobachtung und Prognosefehler werden erst nach dem Aufdecken gezeigt. Die zurückgewiesene Zeitprognose wird bei der Auswertung ausdrücklich ausgewiesen.
+The map offers current water detection, water scores, uncertainty, the old V1 rule, and the disclosed day-15 forecast. The later observation and forecast error are shown only after the reveal. The rejected temporal forecast is explicitly flagged in the evaluation.
 
-Die Modellprüfung unterscheidet Klassifikationsleistung auf Referenzlabels von späteren Wasser-Prognosemetriken. Die Standort- und Handelsregeln sind weiterhin nachvollziehbare Heuristiken, keine trainierten Betriebs- oder Kursprognosen.
+The model validation distinguishes classification performance on reference labels from later water-forecast metrics. The site and trading rules remain traceable heuristics, not trained operational or price forecasts.
 
 ## Tests
 
@@ -44,6 +44,6 @@ python -m unittest discover -s tests -v
 python app.py --export
 ```
 
-Das Paket enthält trainierte Modelle, Stichprobendaten und Caches. Historische Rohbilder außerhalb der drei Demoaufnahmen werden im Downloadpaket ausgelassen und können bei Bedarf mit `python prepare_v2.py series` erneut geladen werden. Der Projektordner enthält den vollständigen heruntergeladenen Forschungsstand.
+The package includes trained models, sample data, and caches. Historical raw imagery beyond the three demo scenes is omitted from the download package and can be re-fetched if needed with `python prepare_v2.py series`. The project folder contains the full downloaded research state.
 
-Lizenzen und Quellen: siehe README_V2.md und LICENSE. Anwendungscode MIT; Quelldaten behalten ihre jeweiligen Rechte.
+Licenses and sources: see README_V2.md and LICENSE. Application code MIT; source data retains its respective rights.
