@@ -192,3 +192,48 @@ order and styled with the existing component classes above.
 - Avoid reformatting `app.py`'s existing routes or `model_v2.py`/`market.py`
   in the same commit as a frontend change; it makes it hard to tell which
   edits are cosmetic and which affect the analysis.
+
+## Example: the "Alt-Data Signal Explorer" (quant_demo.py)
+
+A worked example of the integration pattern above, and a flag for anyone who
+finds this section confusing: it's an illustrative demo, intentionally
+unrelated to the flood/market analysis, placed right below the satellite map.
+
+- **`quant_demo.py`** is a standalone module (not imported by `model.py`,
+  `model_v2.py`, or `market.py`) exposing three pure functions —
+  `quant_proxies`, `quant_sensor`, `quant_signal` — each returning a plain
+  dict, mirroring `market.py`'s style.
+- **`app.py`** gained one `if` branch dispatching three GET routes
+  (`/api/quant/proxies`, `/api/quant/sensor`, `/api/quant/signal`) to those
+  functions — same pattern as every other route, no new method handling.
+- **Frontend**: a new `<section class="quant-demo">` in `index.html`
+  (placed after `.workspace`, before `.exposure` — "below the satellite
+  image" per the request that produced it), new component classes appended
+  to the end of `styles.css`, new `quant_*` keys appended to `i18n.js`'s
+  `de`/`en` blocks, and its own `web/static/quant.js` module — deliberately
+  **not** merged into `app.js`, since it shares no state with the flood
+  analysis (see the "no shared state" note at the top of `quant.js`). It
+  only imports `t`/`tf` from `i18n.js`.
+- **Why it's clearly labeled**: the source file this was built from
+  presented fabricated "sensor" data (synthesized from the real price plus
+  noise) and a random coin-flip trading signal as if they were real
+  analysis. That directly conflicts with this project's existing standard —
+  every other probability, F1 score, and limitation note in the app is
+  either real or explicitly flagged as heuristic/hypothetical. `quant_demo.py`
+  labels every response `"simulated": true` with a `note`/`rationale`
+  field saying what's fabricated, and the UI surfaces that as a persistent
+  "SIMULATED · NOT REAL" tag plus an upfront disclaimer banner. **If you
+  extend this section, keep that labeling** — don't let a "simulated" value
+  go unlabeled in the UI.
+- **Only 5 tickers are supported** (`quant_demo.SUPPORTED_TICKERS`), each
+  with hand-written proxy narratives. The original source script used
+  `yfinance` to look up arbitrary tickers' sector/industry; that dependency
+  was dropped in favor of the same lightweight `requests`-based Yahoo chart
+  API call `market.py` already uses, at the cost of not supporting
+  freeform tickers. To add a 6th ticker, add its proxies to
+  `COMPANY_SPECIFIC_PROXIES` and its name to `COMPANY_NAMES` in
+  `quant_demo.py`, and its symbol to `SUPPORTED_TICKERS`.
+- **This is the one part of Flood Alpha that needs live internet after
+  install** — `_fetch_real_stock_data()` calls Yahoo Finance at request
+  time, every time a ticker is scanned. This is called out in the UI
+  disclaimer; don't remove that line if you touch this section.
