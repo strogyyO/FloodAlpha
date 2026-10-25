@@ -2,10 +2,6 @@
 
 Only the AOI windows of the cloud-optimized GeoTIFFs are transferred.
 No API key is required. Run: python fetch_data.py
-
-This script does not touch data/watch_feed.json, data/duration_reference.json or
-data/company_financials.json: those are small, manually curated facts (each entry cites its
-own public source, see README.md), not bulk downloads, and are committed directly.
 """
 from __future__ import annotations
 import argparse

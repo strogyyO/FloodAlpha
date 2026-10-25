@@ -1,20 +1,37 @@
 test_components_do_not_retain_background (test_core.NumericalTests.test_components_do_not_retain_background) ... ok
 test_confusion_and_undefined_precision (test_core.NumericalTests.test_confusion_and_undefined_precision) ... ok
-test_recession_estimate_bounds_and_monotonicity (test_core.NumericalTests.test_recession_estimate_bounds_and_monotonicity) ... ok
 test_reject_invalid_parameters (test_core.NumericalTests.test_reject_invalid_parameters) ... ok
-test_duration_extrapolation_is_present_and_consistent (test_core.RealDataTests.test_duration_extrapolation_is_present_and_consistent) ... ok
 test_event_result_does_not_use_future_scene (test_core.RealDataTests.test_event_result_does_not_use_future_scene) ... ok
-test_financial_profile_matches_pre_event_filing (test_core.RealDataTests.test_financial_profile_matches_pre_event_filing) ... ok
 test_historical_inputs_and_valid_coverage (test_core.RealDataTests.test_historical_inputs_and_valid_coverage) ... ok
 test_integrity (test_core.RealDataTests.test_integrity) ... ok
 test_market_prices_and_cost_accounting (test_core.RealDataTests.test_market_prices_and_cost_accounting) ... ok
 test_no_position_when_signal_not_triggered (test_core.RealDataTests.test_no_position_when_signal_not_triggered) ... ok
 test_pngs (test_core.RealDataTests.test_pngs) ... ok
 test_real_spatial_analysis_and_holdout (test_core.RealDataTests.test_real_spatial_analysis_and_holdout) ... ok
-test_feed_is_sorted_and_cites_sources (test_core.WatchFeedTests.test_feed_is_sorted_and_cites_sources) ... ok
-test_peak_level_precedes_satellite_signal (test_core.WatchFeedTests.test_peak_level_precedes_satellite_signal) ... ok
+test_components_require_confident_core (test_v2.FeatureTests.test_components_require_confident_core) ... ok
+test_indices_and_shapes (test_v2.FeatureTests.test_indices_and_shapes) ... ok
+test_processing_baseline_offset (test_v2.FeatureTests.test_processing_baseline_offset) ... ok
+test_unknown_not_implicitly_dry (test_v2.FeatureTests.test_unknown_not_implicitly_dry) ... ok
+test_active_forecast_chosen_on_validation (test_v2.TrainedModelTests.test_active_forecast_chosen_on_validation) ... ok
+test_all_new_layers_are_valid_images (test_v2.TrainedModelTests.test_all_new_layers_are_valid_images) ... ok
+test_context_never_reads_future (test_v2.TrainedModelTests.test_context_never_reads_future) ... ok
+test_disjoint_event_partitions (test_v2.TrainedModelTests.test_disjoint_event_partitions) ... ok
+test_observation_analysis_works_without_future (test_v2.TrainedModelTests.test_observation_analysis_works_without_future) ... ok
+test_probability_cache_provenance (test_v2.TrainedModelTests.test_probability_cache_provenance) ... ok
+test_recorded_test_metric_is_reproducible (test_v2.TrainedModelTests.test_recorded_test_metric_is_reproducible) ... /Users/janniklaskolzenburg/Documents/Codex/2026-10-24/brainstorme-ideen-wie-man-satellitenbilder-sinnvoll-2/work/.venv/lib/python3.14/site-packages/joblib/externals/loky/backend/context.py:134: UserWarning: Could not find the number of physical cores for the following reason:
+invalid literal for int() with base 10: ''
+Returning the number of logical cores instead. You can silence this warning by setting LOKY_MAX_CPU_COUNT to the number of cores you want to use.
+  warnings.warn(
+  File "/Users/janniklaskolzenburg/Documents/Codex/2026-10-24/brainstorme-ideen-wie-man-satellitenbilder-sinnvoll-2/work/.venv/lib/python3.14/site-packages/joblib/externals/loky/backend/context.py", line 264, in _count_physical_cores
+    cpu_count_physical = _count_physical_cores_darwin()
+  File "/Users/janniklaskolzenburg/Documents/Codex/2026-10-24/brainstorme-ideen-wie-man-satellitenbilder-sinnvoll-2/work/.venv/lib/python3.14/site-packages/joblib/externals/loky/backend/context.py", line 420, in _count_physical_cores_darwin
+    return int(cpu_info)
+ok
+test_site_outputs_and_unknown_coverage (test_v2.TrainedModelTests.test_site_outputs_and_unknown_coverage) ... ok
+test_snapshot_matches_causal_features (test_v2.TrainedModelTests.test_snapshot_matches_causal_features) ... ok
+test_temporal_training_precedes_validation_and_test (test_v2.TrainedModelTests.test_temporal_training_precedes_validation_and_test) ... ok
 
 ----------------------------------------------------------------------
-Ran 15 tests in 2.271s
+Ran 24 tests in 7.600s
 
 OK

@@ -1,0 +1,563 @@
+{
+  "version": "2.0",
+  "task": "Surface water classification, not flood persistence or business interruption",
+  "selected_model": "hist_gradient_boosting",
+  "features": [
+    "B02",
+    "B03",
+    "B04",
+    "B08",
+    "B11",
+    "B12",
+    "NDWI",
+    "MNDWI",
+    "NDVI",
+    "NDBI",
+    "AWEI_sh",
+    "AWEI_nsh",
+    "visible_mean",
+    "nir_swir_mean",
+    "green_swir_difference",
+    "swir_ratio"
+  ],
+  "partitions": {
+    "train_events": [
+      "Ghana",
+      "India",
+      "Mekong",
+      "Nigeria",
+      "Pakistan",
+      "Somalia",
+      "Sri-Lanka"
+    ],
+    "calibration_events": [
+      "Paraguay"
+    ],
+    "selection_events": [
+      "Spain"
+    ],
+    "untouched_test_events": [
+      "Bolivia",
+      "USA"
+    ],
+    "train_pixels": 268699,
+    "calibration_pixels": 35000,
+    "selection_pixels": 40000,
+    "test_pixels": 80000
+  },
+  "selection_results": {
+    "hist_gradient_boosting": {
+      "threshold": 0.7749999999999999,
+      "n": 40000,
+      "water_fraction": 0.083625,
+      "f1": 0.9650202672271431,
+      "precision": 0.9692400482509047,
+      "recall": 0.9608370702541106,
+      "iou": 0.9324049898462431,
+      "brier": 0.005742958281189203,
+      "average_precision": 0.9930798665371033,
+      "ece_10": 0.007751945249107668,
+      "reliability": [
+        {
+          "count": 35844,
+          "predicted": 0.0031751852948218584,
+          "observed": 0.0005021760964178105
+        },
+        {
+          "count": 348,
+          "predicted": 0.14615420997142792,
+          "observed": 0.040229885057471264
+        },
+        {
+          "count": 170,
+          "predicted": 0.2444586306810379,
+          "observed": 0.08235294117647059
+        },
+        {
+          "count": 86,
+          "predicted": 0.3476907014846802,
+          "observed": 0.12790697674418605
+        },
+        {
+          "count": 80,
+          "predicted": 0.4516211450099945,
+          "observed": 0.2875
+        },
+        {
+          "count": 46,
+          "predicted": 0.5522565245628357,
+          "observed": 0.32608695652173914
+        },
+        {
+          "count": 63,
+          "predicted": 0.6447733044624329,
+          "observed": 0.3333333333333333
+        },
+        {
+          "count": 59,
+          "predicted": 0.7498393058776855,
+          "observed": 0.3559322033898305
+        },
+        {
+          "count": 81,
+          "predicted": 0.857245922088623,
+          "observed": 0.7160493827160493
+        },
+        {
+          "count": 3223,
+          "predicted": 0.9938299059867859,
+          "observed": 0.9773502947564381
+        }
+      ]
+    },
+    "extra_trees": {
+      "threshold": 0.7,
+      "n": 40000,
+      "water_fraction": 0.083625,
+      "f1": 0.964494382022472,
+      "precision": 0.9666666666666667,
+      "recall": 0.9623318385650225,
+      "iou": 0.9314236111111112,
+      "brier": 0.005483610089868307,
+      "average_precision": 0.9928879927104107,
+      "ece_10": 0.008258600708236918,
+      "reliability": [
+        {
+          "count": 35765,
+          "predicted": 0.004112524911761284,
+          "observed": 0.00039144414930798266
+        },
+        {
+          "count": 446,
+          "predicted": 0.14029374718666077,
+          "observed": 0.01569506726457399
+        },
+        {
+          "count": 158,
+          "predicted": 0.243160679936409,
+          "observed": 0.08860759493670886
+        },
+        {
+          "count": 75,
+          "predicted": 0.346336305141449,
+          "observed": 0.24
+        },
+        {
+          "count": 72,
+          "predicted": 0.4504971504211426,
+          "observed": 0.25
+        },
+        {
+          "count": 69,
+          "predicted": 0.5465615391731262,
+          "observed": 0.4057971014492754
+        },
+        {
+          "count": 85,
+          "predicted": 0.653537929058075,
+          "observed": 0.3176470588235294
+        },
+        {
+          "count": 64,
+          "predicted": 0.7492800951004028,
+          "observed": 0.625
+        },
+        {
+          "count": 114,
+          "predicted": 0.8552555441856384,
+          "observed": 0.7456140350877193
+        },
+        {
+          "count": 3152,
+          "predicted": 0.9930652379989624,
+          "observed": 0.9815989847715736
+        }
+      ]
+    }
+  },
+  "decision_threshold": 0.7749999999999999,
+  "tuned_mndwi_threshold": 0.0250000000000003,
+  "test": {
+    "learned": {
+      "n": 80000,
+      "water_fraction": 0.1134,
+      "f1": 0.9366476782323494,
+      "precision": 0.9797760924521488,
+      "recall": 0.8971560846560847,
+      "iou": 0.8808441558441559,
+      "brier": 0.01321716420352459,
+      "average_precision": 0.9703011533361251,
+      "ece_10": 0.009633783928491176,
+      "reliability": [
+        {
+          "count": 69578,
+          "predicted": 0.002908863127231598,
+          "observed": 0.0070999453850355
+        },
+        {
+          "count": 579,
+          "predicted": 0.14507582783699036,
+          "observed": 0.12780656303972365
+        },
+        {
+          "count": 290,
+          "predicted": 0.24935568869113922,
+          "observed": 0.1793103448275862
+        },
+        {
+          "count": 256,
+          "predicted": 0.3509975075721741,
+          "observed": 0.19140625
+        },
+        {
+          "count": 197,
+          "predicted": 0.4523986876010895,
+          "observed": 0.18274111675126903
+        },
+        {
+          "count": 309,
+          "predicted": 0.5494990944862366,
+          "observed": 0.1779935275080906
+        },
+        {
+          "count": 284,
+          "predicted": 0.6478983759880066,
+          "observed": 0.28169014084507044
+        },
+        {
+          "count": 308,
+          "predicted": 0.7548756003379822,
+          "observed": 0.4837662337662338
+        },
+        {
+          "count": 252,
+          "predicted": 0.8442398309707642,
+          "observed": 0.7261904761904762
+        },
+        {
+          "count": 7947,
+          "predicted": 0.9969494342803955,
+          "observed": 0.9940858185478797
+        }
+      ]
+    },
+    "mndwi_fixed_015": {
+      "n": 80000,
+      "water_fraction": 0.1134,
+      "f1": 0.8472169392671485,
+      "precision": 0.9970158161742764,
+      "recall": 0.7365520282186949,
+      "iou": 0.7349318081830181,
+      "brier": 0.030124999582767487,
+      "average_precision": 0.7642290215692807,
+      "ece_10": 0.030124999999999996,
+      "reliability": [
+        {
+          "count": 73298,
+          "predicted": 0.0,
+          "observed": 0.03260661955305738
+        },
+        {
+          "count": 6702,
+          "predicted": 1.0,
+          "observed": 0.9970158161742764
+        }
+      ]
+    },
+    "mndwi_validation_tuned": {
+      "n": 80000,
+      "water_fraction": 0.1134,
+      "f1": 0.8902771880875842,
+      "precision": 0.989750505731625,
+      "recall": 0.8089726631393298,
+      "iou": 0.8022518583296896,
+      "brier": 0.022612499073147774,
+      "average_precision": 0.8223436024652112,
+      "ece_10": 0.022612500000000004,
+      "reliability": [
+        {
+          "count": 72585,
+          "predicted": 0.0,
+          "observed": 0.0238754563615072
+        },
+        {
+          "count": 7415,
+          "predicted": 1.0,
+          "observed": 0.989750505731625
+        }
+      ]
+    }
+  },
+  "test_by_event": {
+    "Bolivia": {
+      "learned": {
+        "n": 40000,
+        "water_fraction": 0.18405,
+        "f1": 0.9413261699420331,
+        "precision": 0.9814268867924528,
+        "recall": 0.904373811464276,
+        "iou": 0.8891559829059829,
+        "brier": 0.020116660743951797,
+        "average_precision": 0.9795960668601446,
+        "ece_10": 0.015196760610619087,
+        "reliability": [
+          {
+            "count": 31411,
+            "predicted": 0.0041650342755019665,
+            "observed": 0.010060170004138677
+          },
+          {
+            "count": 440,
+            "predicted": 0.14513851702213287,
+            "observed": 0.15454545454545454
+          },
+          {
+            "count": 237,
+            "predicted": 0.2485477775335312,
+            "observed": 0.20253164556962025
+          },
+          {
+            "count": 226,
+            "predicted": 0.3526805639266968,
+            "observed": 0.19911504424778761
+          },
+          {
+            "count": 179,
+            "predicted": 0.45229920744895935,
+            "observed": 0.1787709497206704
+          },
+          {
+            "count": 283,
+            "predicted": 0.5492100715637207,
+            "observed": 0.1519434628975265
+          },
+          {
+            "count": 260,
+            "predicted": 0.6482978463172913,
+            "observed": 0.27307692307692305
+          },
+          {
+            "count": 272,
+            "predicted": 0.7542104125022888,
+            "observed": 0.46691176470588236
+          },
+          {
+            "count": 194,
+            "predicted": 0.8417412638664246,
+            "observed": 0.7319587628865979
+          },
+          {
+            "count": 6498,
+            "predicted": 0.9979315400123596,
+            "observed": 0.9956909818405664
+          }
+        ]
+      },
+      "mndwi_fixed_015": {
+        "n": 40000,
+        "water_fraction": 0.18405,
+        "f1": 0.8494732735076083,
+        "precision": 0.9981661470750046,
+        "recall": 0.7393371366476501,
+        "iou": 0.7383342376559957,
+        "brier": 0.048225000500679016,
+        "average_precision": 0.7859563010770511,
+        "ece_10": 0.04822499999999999,
+        "reliability": [
+          {
+            "count": 34547,
+            "predicted": 0.0,
+            "observed": 0.05554751497959302
+          },
+          {
+            "count": 5453,
+            "predicted": 1.0,
+            "observed": 0.9981661470750046
+          }
+        ]
+      },
+      "mndwi_validation_tuned": {
+        "n": 40000,
+        "water_fraction": 0.18405,
+        "f1": 0.8905185961236249,
+        "precision": 0.9915014164305949,
+        "recall": 0.8082042923118717,
+        "iou": 0.8026440037771483,
+        "brier": 0.03657500073313713,
+        "average_precision": 0.8366357005925074,
+        "ece_10": 0.036575,
+        "reliability": [
+          {
+            "count": 33999,
+            "predicted": 0.0,
+            "observed": 0.04153063325391923
+          },
+          {
+            "count": 6001,
+            "predicted": 1.0,
+            "observed": 0.9915014164305949
+          }
+        ]
+      }
+    },
+    "USA": {
+      "learned": {
+        "n": 40000,
+        "water_fraction": 0.04275,
+        "f1": 0.9161769254562326,
+        "precision": 0.9724228496388706,
+        "recall": 0.8660818713450292,
+        "iou": 0.8453196347031964,
+        "brier": 0.006317669525742531,
+        "average_precision": 0.922314205562201,
+        "ece_10": 0.004277765375075977,
+        "reliability": [
+          {
+            "count": 38167,
+            "predicted": 0.0018750486196950078,
+            "observed": 0.0046637147273822935
+          },
+          {
+            "count": 139,
+            "predicted": 0.14487740397453308,
+            "observed": 0.04316546762589928
+          },
+          {
+            "count": 53,
+            "predicted": 0.252968430519104,
+            "observed": 0.07547169811320754
+          },
+          {
+            "count": 30,
+            "predicted": 0.33831849694252014,
+            "observed": 0.13333333333333333
+          },
+          {
+            "count": 18,
+            "predicted": 0.45338794589042664,
+            "observed": 0.2222222222222222
+          },
+          {
+            "count": 26,
+            "predicted": 0.5526444911956787,
+            "observed": 0.46153846153846156
+          },
+          {
+            "count": 24,
+            "predicted": 0.6435708403587341,
+            "observed": 0.375
+          },
+          {
+            "count": 36,
+            "predicted": 0.7599012851715088,
+            "observed": 0.6111111111111112
+          },
+          {
+            "count": 58,
+            "predicted": 0.8525971174240112,
+            "observed": 0.7068965517241379
+          },
+          {
+            "count": 1449,
+            "predicted": 0.9925453662872314,
+            "observed": 0.9868875086266391
+          }
+        ]
+      },
+      "mndwi_fixed_015": {
+        "n": 40000,
+        "water_fraction": 0.04275,
+        "f1": 0.8374450827982427,
+        "precision": 0.9919935948759008,
+        "recall": 0.724561403508772,
+        "iou": 0.7203488372093023,
+        "brier": 0.012024999596178532,
+        "average_precision": 0.7305352713749947,
+        "ece_10": 0.012025,
+        "reliability": [
+          {
+            "count": 38751,
+            "predicted": 0.0,
+            "observed": 0.01215452504451498
+          },
+          {
+            "count": 1249,
+            "predicted": 1.0,
+            "observed": 0.9919935948759008
+          }
+        ]
+      },
+      "mndwi_validation_tuned": {
+        "n": 40000,
+        "water_fraction": 0.04275,
+        "f1": 0.8892445582586428,
+        "precision": 0.9823196605374823,
+        "recall": 0.8122807017543859,
+        "iou": 0.8005763688760807,
+        "brier": 0.00865000020712614,
+        "average_precision": 0.8059443032085163,
+        "ece_10": 0.008650000000000001,
+        "reliability": [
+          {
+            "count": 38586,
+            "predicted": 0.0,
+            "observed": 0.008319079458871094
+          },
+          {
+            "count": 1414,
+            "predicted": 1.0,
+            "observed": 0.9823196605374823
+          }
+        ]
+      }
+    }
+  },
+  "limitations": [
+    "Expert-edited labels initialized from an optical index; residual annotation bias is possible.",
+    "Subset of reference chips; not a full official Sen1Floods11 benchmark.",
+    "Calibration is tested geographically but is not guaranteed in Brazil.",
+    "Water classification accuracy does not establish flood-prediction or trading performance."
+  ],
+  "runtime": {
+    "python": "3.14.3",
+    "sklearn": "1.9.1"
+  },
+  "random_seed": 42,
+  "selective_test": {
+    "coverage": 0.97945,
+    "scores": {
+      "n": 78356,
+      "water_fraction": 0.11040635050283322,
+      "f1": 0.959406528189911,
+      "precision": 0.9858519331625808,
+      "recall": 0.9343428505375101,
+      "iou": 0.9219801528458994,
+      "brier": 0.008175789378583431,
+      "average_precision": 0.9752908358686817,
+      "ece_10": 0.004519266135101754,
+      "reliability": [
+        {
+          "count": 69578,
+          "predicted": 0.002908863127231598,
+          "observed": 0.0070999453850355
+        },
+        {
+          "count": 579,
+          "predicted": 0.14507582783699036,
+          "observed": 0.12780656303972365
+        },
+        {
+          "count": 252,
+          "predicted": 0.8442398309707642,
+          "observed": 0.7261904761904762
+        },
+        {
+          "count": 7947,
+          "predicted": 0.9969494342803955,
+          "observed": 0.9940858185478797
+        }
+      ]
+    }
+  },
+  "classifier_sha256": "7ad65f18bd89e5c884856971c3fdc396440272aad07104981d9525fe169d2d02"
+}

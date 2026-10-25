@@ -8,10 +8,9 @@ from unittest.mock import patch
 import numpy as np
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
-from model import FloodModel, binary_scores, clean_components, recession_estimate
+from model import FloodModel, binary_scores, clean_components
 from app import parameters
 import market
-import watch
 
 
 class NumericalTests(unittest.TestCase):
@@ -33,35 +32,6 @@ class NumericalTests(unittest.TestCase):
         for q in ["threshold=nan", "radius=0", "delta=hello", "radius=inf"]:
             with self.assertRaises(ValueError):
                 parameters(q)
-
-    def test_recession_estimate_bounds_and_monotonicity(self):
-        self.assertEqual(recession_estimate(0, 0)["status"], "no_new_water")
-        drained = recession_estimate(100, 0)
-        self.assertEqual(drained["status"], "drained_by_day15")
-        stuck = recession_estimate(100, 100)
-        self.assertEqual(stuck["status"], "no_measurable_recession")
-        self.assertIsNone(stuck["estimated_days_to_mostly_dry"])
-        fast = recession_estimate(100, 10)   # recedes quickly
-        slow = recession_estimate(100, 90)   # recedes slowly
-        self.assertEqual(fast["status"], "extrapolated")
-        self.assertEqual(slow["status"], "extrapolated")
-        self.assertGreater(fast["decay_rate_per_day"], slow["decay_rate_per_day"])
-        self.assertLess(fast["estimated_days_to_mostly_dry"], slow["estimated_days_to_mostly_dry"])
-
-
-class WatchFeedTests(unittest.TestCase):
-    def test_feed_is_sorted_and_cites_sources(self):
-        f = watch.feed()
-        dates = [e["date"] for e in f["entries"]]
-        self.assertEqual(dates, sorted(dates))
-        for e in f["entries"]:
-            self.assertTrue(e["source_url"].startswith("http"), e)
-
-    def test_peak_level_precedes_satellite_signal(self):
-        f = watch.feed()
-        self.assertEqual(f["peak_level"], "emergency")
-        self.assertGreater(f["peak_lead_time_days"], 0)
-        self.assertGreaterEqual(f["lead_time_days"], f["peak_lead_time_days"])
 
 
 class RealDataTests(unittest.TestCase):
@@ -100,25 +70,12 @@ class RealDataTests(unittest.TestCase):
         self.assertGreater(a["summary"]["new_water_km2"], 10)
         self.assertGreater(a["summary"]["direct"], 0)
         self.assertTrue(any(s["id"] == market.SITE_ID for s in a["sites"]))
-        for s in a["sites"]:
-            self.assertIn(s["severity_level"], [0, 1, 2, 3])
         v = m.evaluate()["satellite_persistence"]
         self.assertGreater(v["pixels"], 10000)
         self.assertGreater(v["fp"], 0)  # The demo must expose real forecast errors.
         self.assertGreater(v["fn"], 0)
         self.assertGreaterEqual(v["f1"], 0)
         self.assertLessEqual(v["f1"], 1)
-
-    def test_duration_extrapolation_is_present_and_consistent(self):
-        v = self.model.evaluate()
-        d = v["duration"]
-        self.assertIn(d["status"], ["extrapolated", "drained_by_day15", "no_measurable_recession", "no_new_water"])
-        if d["status"] == "extrapolated":
-            self.assertGreater(d["decay_rate_per_day"], 0)
-            self.assertGreater(d["estimated_days_to_mostly_dry"], 0)
-        self.assertIsInstance(v["site_duration"], dict)
-        for site_id, estimate in v["site_duration"].items():
-            self.assertIn(estimate["status"], ["extrapolated", "drained_by_day15", "no_measurable_recession"])
 
     def test_no_position_when_signal_not_triggered(self):
         with patch("market.market_rows", return_value=([
@@ -137,14 +94,8 @@ class RealDataTests(unittest.TestCase):
         self.assertAlmostEqual(e["gross_pnl_usd_per_2usd"]-e["net_pnl_usd_per_2usd"],
             e["costs"]["transaction_usd"]+e["costs"]["borrow_usd"])
 
-    def test_financial_profile_matches_pre_event_filing(self):
-        p = market.financial_profile()
-        n = p["net_sales_usd_million"]
-        self.assertAlmostEqual(sum(n[k] for k in n if k != "total"), n["total"], delta=1)
-        self.assertTrue(p["filed_before_event"])
-
     def test_pngs(self):
-        for kind in ["before", "event", "future", "flood", "unknown", "error", "recession"]:
+        for kind in ["before", "event", "future", "flood", "unknown", "error"]:
             self.assertTrue(self.model.png(kind).startswith(b"\x89PNG\r\n\x1a\n"))
 
 

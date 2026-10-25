@@ -1,5 +1,4 @@
-"""Transparent flood detection, a forward persistence forecast, site exposure and severity,
-and a single-event flood-duration extrapolation.
+"""Transparent flood detection, a forward persistence forecast, and site exposure.
 
 No fitted probabilities, invented supplier links, or fabricated investment returns.
 """
@@ -44,41 +43,10 @@ def binary_scores(prediction, target, valid):
             "accuracy": ratio(tp+tn, len(p)), "pixels": len(p)}
 
 
-def recession_estimate(day0_pixels, day15_pixels, days=15, dry_fraction=.10):
-    """Extrapolate a flood-duration estimate from a single observed recession interval.
-
-    Fits one exponential decay rate from how much of the day-0 flooded area is still wet at
-    day `days`, then solves for the day on which only `dry_fraction` of the original flooded
-    area would remain wet. This is a transparent heuristic from one event and one interval,
-    not a calibrated hydrological model: it assumes a constant daily fractional recession rate,
-    which real drainage (dams, pumping, soil saturation, further rain) will not actually hold.
-    """
-    if day0_pixels <= 0:
-        return {"status": "no_new_water", "note": "No newly flooded pixels to track recession for."}
-    persisted_fraction = day15_pixels/day0_pixels
-    out = {"persisted_fraction_at_day15": round(persisted_fraction, 4), "dry_threshold_fraction": dry_fraction,
-           "method": ("Single-interval exponential extrapolation from the observed day-0 to "
-                      f"day-{days} recession of newly flooded pixels. One event, one interval: "
-                      "not a validated forecast of drainage speed.")}
-    if persisted_fraction <= 0:
-        out.update(status="drained_by_day15", estimated_days_to_mostly_dry=f"<= {days}",
-                   note="All tracked pixels were already dry by the later scene; the exact drainage day is unknown from these three images.")
-        return out
-    if persisted_fraction >= 1:
-        out.update(status="no_measurable_recession", estimated_days_to_mostly_dry=None,
-                   note="As much or more of the tracked area was wet at the later scene; no recession could be fitted from this interval (possibly new rain, or water still rising).")
-        return out
-    k = -np.log(persisted_fraction)/days
-    t_dry = float(np.log(dry_fraction)/-k)
-    out.update(status="extrapolated", decay_rate_per_day=round(float(k), 4),
-               estimated_days_to_mostly_dry=round(t_dry, 1))
-    return out
-
-
 class FloodModel:
     def __init__(self):
         if not (DATA / "manifest.json").exists():
-            raise FileNotFoundError("Data is missing. Run: python fetch_data.py")
+            raise FileNotFoundError("Daten fehlen. Zuerst: python fetch_data.py")
         self.manifest = json.loads((DATA / "manifest.json").read_text())
         self.transform = Affine(*self.manifest["transform"])
         self.shape = tuple(self.manifest["shape"])
@@ -139,7 +107,7 @@ class FloodModel:
             if geom.is_empty:
                 continue
             id_ = f"{e['type']}/{e['id']}"
-            record = {"id": id_, "name": tags.get("name") or tags.get("operator") or ("Industrial area " + str(e["id"])),
+            record = {"id": id_, "name": tags.get("name") or tags.get("operator") or ("Industriefläche " + str(e["id"])),
                       "kind": kind, "tags": tags, "geometry": geom, "approximate": node,
                       "osm_url": "https://www.openstreetmap.org/"+id_}
             (roads if kind == "road" else sites).append(record)
@@ -203,22 +171,16 @@ class FloodModel:
             enough = coverage >= .8
             # Ranking index only: these coefficients are not calibrated probabilities.
             score = round(100*(.7*frac+.3*(road_frac or 0)), 1) if enough else None
-            if not enough:
-                severity, severity_level = "Data gap: not enough cloud-free coverage to score", 0
-            elif frac >= .05:
-                severity, severity_level = "Severity: direct exposure", 3
-            elif (road_frac or 0) >= .10:
-                severity, severity_level = "Severity: indirect exposure (wet access roads)", 2
-            else:
-                severity, severity_level = "No image signal", 1
+            signal = "Datenlücke" if not enough else ("Prüfen: direkt exponiert" if frac >= .05 else
+                     "Prüfen: Umfeld exponiert" if (road_frac or 0) >= .10 else "Kein Bildsignal")
             gx, gy = s["geometry"].representative_point().coords[0]
             inverse = ~self.transform
             cx, cy = inverse.a*gx+inverse.c, inverse.e*gy+inverse.f
             rows.append({"id": s["id"], "name": s["name"], "osm_url": s["osm_url"], "tags": s["tags"],
                 "approximate": s["approximate"], "direct_fraction": round(frac, 4) if enough else None,
                 "road_fraction": round(road_frac, 4) if road_frac is not None else None,
-                "coverage": round(coverage, 4), "score": score, "severity": severity, "severity_level": severity_level,
-                "forecast": "Exposure could persist through 21 May" if enough and (frac >= .05 or (road_frac or 0) >= .10) else "No actionable positive risk signal",
+                "coverage": round(coverage, 4), "score": score, "signal": signal,
+                "forecast": "Exposition könnte bis 21. Mai fortbestehen" if enough and (frac >= .05 or (road_frac or 0) >= .10) else "Kein belastbares positives Risikosignal",
                 "geometry": self.pixels(s["geometry"]), "center": [cx, cy]})
         rows.sort(key=lambda s: (s["score"] is not None, s["score"] or 0), reverse=True)
         area = lambda mask: round(float(np.count_nonzero(mask))*.0004, 2)
@@ -229,7 +191,7 @@ class FloodModel:
                             "road_segments": len(road_outputs), "forecast_km2": area(predictions)},
                 "parameters": {"threshold": threshold, "delta": delta, "radius": radius},
                 "shape": self.shape, "manifest": self.public_manifest(),
-                "forecast_method": "15-day persistence: new water detected on 6 May stays wet on 21 May. No trained outage or price forecast."}
+                "forecast_method": "15-Tage-Persistenz: neue Wasserflächen vom 6. Mai bleiben am 21. Mai nass. Keine trainierte Ausfall- oder Kursprognose."}
 
     def public_manifest(self):
         return {k: self.manifest[k] for k in ["bbox", "crs", "shape", "scenes", "osm", "downloaded_at"]}
@@ -242,35 +204,18 @@ class FloodModel:
         comparison = valid & future["valid"] & ~permanent
         observed = future["index"] > threshold
         wet = clean_components(observed & future["valid"])
-        still_wet = flood & wet & comparison
-        event_pixels = int(np.count_nonzero(flood & comparison))
-        persisted_pixels = int(np.count_nonzero(still_wet))
         return {"satellite_persistence": binary_scores(flood, wet, comparison),
                 "no_new_water_baseline": binary_scores(np.zeros(self.shape, bool), wet, comparison),
                 "coverage_percent": round(float(comparison.mean())*100, 1),
-                "duration": recession_estimate(event_pixels, persisted_pixels),
-                "site_duration": self.site_duration(flood, wet, comparison),
-                "target": "Water on 21 May, on areas not classified as water on 21 April",
-                "limitations": "Same sensor and water index as the target: not an independent ground truth. One event, no claim about general forecast quality. No comparison against a strong weather/gauge model."}
-
-    def site_duration(self, flood, wet, comparison):
-        out = {}
-        for s in self.sites:
-            elig = self.geometry_mask(s["geometry"]) & comparison
-            n = int(np.count_nonzero(elig))
-            event_n = int(np.count_nonzero(elig & flood))
-            if n == 0 or event_n == 0:
-                continue
-            persisted_n = int(np.count_nonzero(elig & flood & wet))
-            out[s["id"]] = recession_estimate(event_n, persisted_n)
-        return out
+                "target": "Wasser am 21. Mai auf am 21. April nicht als Wasser klassifizierten Flächen",
+                "limitations": "Gleicher Sensor und gleicher Wasserindex als Ziel: keine unabhängige Ground Truth. Ein Ereignis, keine Aussage über allgemeine Prognosegüte. Kein Vergleich mit einem starken Wetter-/Pegelmodell."}
 
     @lru_cache(maxsize=40)
     def png(self, kind, threshold=.15, delta=.18):
         if kind in ["before", "event", "future"]:
             scene = self.scenes[kind]
             rgb = np.stack([scene["bands"][b] for b in ["B04", "B03", "B02"]], axis=-1)
-            rgb = (np.clip(rgb/0.30, 0, 1)**.8*255).astype("uint8")
+            rgb = (np.clip(np.nan_to_num(rgb, nan=0.0)/0.30, 0, 1)**.8*255).astype("uint8")
             rgb[~scene["valid"]] = [48, 53, 64]
             img = Image.fromarray(rgb)
         else:
@@ -287,12 +232,6 @@ class FloodModel:
                 arr[eligible & flood & target] = [49, 225, 158, 170]
                 arr[eligible & flood & ~target] = [255, 176, 64, 190]
                 arr[eligible & ~flood & target] = [255, 79, 110, 190]
-            elif kind == "recession":
-                f = self.scenes["future"]
-                eligible = valid & f["valid"] & ~permanent
-                still_wet = clean_components((f["index"] > threshold) & f["valid"])
-                arr[eligible & flood & still_wet] = [66, 150, 255, 190]
-                arr[eligible & flood & ~still_wet] = [49, 225, 158, 190]
             else:
                 raise ValueError("Unknown layer")
             img = Image.fromarray(arr)

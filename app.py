@@ -8,18 +8,15 @@ from http.server import BaseHTTPRequestHandler, ThreadingHTTPServer
 from pathlib import Path
 from urllib.parse import urlparse, parse_qs
 
-from model import FloodModel
+from model_v2 import FloodModel, DEFAULT_THRESHOLD, DEFAULT_DELTA
 from market import plan, event_study
-import watch
 
 ROOT = Path(__file__).resolve().parent
-RAW_EXPORTS = {"watch-feed": "watch_feed.json", "duration-reference": "duration_reference.json",
-               "company-financials": "company_financials.json"}
 
 
 def parameters(query):
     q = parse_qs(query)
-    specs = [("threshold", .15, -.1, .5), ("delta", .18, .05, .5), ("radius", 500, 100, 1500)]
+    specs = [("threshold", DEFAULT_THRESHOLD, .1, .95), ("delta", DEFAULT_DELTA, .05, .7), ("radius", 500, 100, 1500)]
     values = []
     for name, default, lower, upper in specs:
         try:
@@ -52,26 +49,27 @@ def make_handler(model):
             try:
                 threshold, delta, radius = parameters(parsed.query)
                 if parsed.path in ["/", "/index.html"]:
-                    return self.send((ROOT/"web"/"index.html").read_bytes(), "text/html; charset=utf-8")
+                    html=(ROOT/"web"/"index.html").read_text().replace("__DEFAULT_THRESHOLD__",str(round(DEFAULT_THRESHOLD,3)))
+                    return self.send(html, "text/html; charset=utf-8")
                 if parsed.path == "/health":
-                    return self.send(json.dumps({"status": "ok", "sites": len(model.sites), "data": "real Sentinel-2 + historical OSM"}))
+                    return self.send(json.dumps({"status": "ok", "model_version":"2.0", "sites": len(model.sites), "data": "real Sentinel-2 + historical OSM", "active_forecast":model.forecast_report["deployment"]}))
                 if parsed.path == "/api/analysis":
                     return self.send(json.dumps(model.analyze(threshold, delta, radius), allow_nan=False))
+                if parsed.path == "/api/model-info":
+                    return self.send(json.dumps(model.model_info(), allow_nan=False))
                 if parsed.path == "/api/validation":
                     return self.send(json.dumps(model.evaluate(threshold, delta), allow_nan=False))
-                if parsed.path == "/api/watch-feed":
-                    return self.send(json.dumps(watch.feed(), allow_nan=False))
                 if parsed.path == "/api/trading-plan":
                     return self.send(json.dumps(plan(model.analyze(threshold, delta, radius)), allow_nan=False))
                 if parsed.path == "/api/event-study":
                     return self.send(json.dumps(event_study(model.analyze(threshold, delta, radius)), allow_nan=False))
                 if parsed.path.startswith("/image/"):
                     kind = parsed.path.split("/")[-1].removesuffix(".png")
-                    if kind not in ["before", "event", "future", "flood", "unknown", "error", "recession"]:
+                    if kind not in ["before", "event", "future", "flood", "unknown", "error", "forecast", "probability", "uncertainty", "legacy"]:
                         return self.send("Not found", "text/plain", 404)
                     return self.send(model.png(kind, threshold, delta), "image/png")
                 if parsed.path == "/export/sites.csv":
-                    fields = ["id", "name", "score", "severity", "direct_fraction", "road_fraction", "coverage", "approximate", "forecast", "osm_url"]
+                    fields = ["id", "name", "score", "signal", "direct_fraction", "forecast_fraction", "uncertain_fraction", "road_fraction", "coverage", "approximate", "forecast", "osm_url"]
                     out = io.StringIO()
                     writer = csv.DictWriter(out, fieldnames=fields, extrasaction="ignore")
                     writer.writeheader()
@@ -79,13 +77,9 @@ def make_handler(model):
                         # Prevent spreadsheet formula execution from untrusted OSM names.
                         safe = {k: ("'"+v if isinstance(v, str) and v.startswith(("=", "+", "-", "@", "\t", "\r")) else v) for k,v in row.items()}
                         writer.writerow(safe)
-                    return self.send("﻿"+out.getvalue(), "text/csv; charset=utf-8", filename="flood_alpha_sites.csv")
+                    return self.send("\ufeff"+out.getvalue(), "text/csv; charset=utf-8", filename="flood_alpha_sites.csv")
                 if parsed.path == "/export/analysis.json":
                     return self.send(json.dumps(model.analyze(threshold, delta, radius), indent=2, allow_nan=False), filename="flood_alpha_analysis.json")
-                if parsed.path.startswith("/export/") and parsed.path.endswith(".json"):
-                    key = parsed.path[len("/export/"):-len(".json")]
-                    if key in RAW_EXPORTS:
-                        return self.send((ROOT/"data"/RAW_EXPORTS[key]).read_bytes(), "application/json; charset=utf-8", filename=RAW_EXPORTS[key])
                 return self.send("Not found", "text/plain", 404)
             except (ValueError, KeyError) as exc:
                 return self.send(json.dumps({"error": str(exc)}), status=400)
@@ -93,7 +87,7 @@ def make_handler(model):
                 return
             except Exception as exc:
                 self.log_error("%s", exc)
-                return self.send(json.dumps({"error": "Processing failed. See the Python terminal for details."}), status=500)
+                return self.send(json.dumps({"error": "Verarbeitung fehlgeschlagen. Details im Python-Terminal."}), status=500)
 
     return Handler
 
@@ -109,11 +103,10 @@ def main():
         (ROOT/"analysis.json").write_text(json.dumps(model.analyze(), indent=2, allow_nan=False))
         (ROOT/"validation.json").write_text(json.dumps(model.evaluate(), indent=2, allow_nan=False))
         (ROOT/"event_study.json").write_text(json.dumps(event_study(model.analyze()), indent=2, allow_nan=False))
-        (ROOT/"watch_feed_summary.json").write_text(json.dumps(watch.feed(), indent=2, allow_nan=False))
-        print("analysis.json, validation.json, event_study.json and watch_feed_summary.json written.")
+        print("analysis.json, validation.json and event_study.json written.")
         return
     server = ThreadingHTTPServer((args.host, args.port), make_handler(model))
-    print(f"Flood Alpha is running: http://{args.host}:{args.port}\nStop with Ctrl+C", flush=True)
+    print(f"Flood Alpha läuft: http://{args.host}:{args.port}\nBeenden: Ctrl+C", flush=True)
     try:
         server.serve_forever()
     except KeyboardInterrupt:

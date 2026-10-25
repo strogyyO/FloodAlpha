@@ -3,30 +3,13 @@
     "ticker": "AGCO",
     "site_id": "way/475623590",
     "company_source": "https://www.sec.gov/Archives/edgar/data/880266/000088026624000013/agco-20231231.htm",
-    "financial_profile": {
-      "ticker": "AGCO",
-      "fiscal_year": 2023,
-      "filed_before_event": true,
-      "source": "AGCO press release, \"AGCO Reports Fourth Quarter and Full Year Results\", 6 February 2024 (same regional segment figures as the FY2023 Form 10-K cited in company_source)",
-      "source_url": "https://news.agcocorp.com/2024-02-06-AGCO-REPORTS-FOURTH-QUARTER-AND-FULL-YEAR-RESULTS",
-      "net_sales_usd_million": {
-        "north_america": 3752.7,
-        "south_america": 2234.2,
-        "europe_middle_east": 7540.5,
-        "asia_pacific_africa": 885.0,
-        "total": 14412.4
-      },
-      "south_america_share_percent": 15.5,
-      "south_america_yoy_change_percent": 5.3,
-      "note": "This is AGCO's whole South America regional segment, not a Canoas-facility-specific figure -- AGCO does not publicly break out single-facility revenue. It shows the financial scale of the region containing the exposed site, not that site's own output, and was published before the flood (6 Feb 2024), so it is not itself a reaction to the event."
-    },
-    "rule": "If >=5% direct exposure or >=10% wet access roads: hypothetically short AGCO and long SPY, $1 initial notional each; otherwise no position.",
+    "rule": "Bei \u22655 % direkter Exposition oder \u226510 % nassem Stra\u00dfenumfeld: hypothetisch Short AGCO und Long SPY, je 1 USD Ausgangsnotional; sonst keine Position.",
     "triggered": true,
-    "action": "Candidate position: short AGCO / long SPY",
+    "action": "Pr\u00fcfposition: Short AGCO / Long SPY",
     "signal_date": "2024-05-06",
     "entry_date": "2024-05-07",
     "exit_date": "2024-05-21",
-    "assumptions": "Entry at the next trading day's open, exit at the close on 21 May. No real order is placed. Exposure is not proof of a company outage. SPY is a rough market comparison, not a beta/sector hedge."
+    "assumptions": "Eintritt zum n\u00e4chsten B\u00f6rsentages-Open, Austritt zum Close am 21. Mai. Keine echte Order. Exposition ist kein Nachweis eines Unternehmensausfalls. SPY ist ein grober Marktvergleich, kein Beta-/Sektorhedge."
   },
   "prices": {
     "AGCO": {
@@ -231,7 +214,7 @@
     "per_execution_bps": 10,
     "annual_borrow_rate": 0.05
   },
-  "limitations": "A retrospectively chosen case study. No evidence of causal price impact or tradable alpha; no news/weather comparison. Historical data availability and borrowability are not demonstrated. Funding, variable borrow rates, taxes and real execution are not modeled.",
+  "limitations": "Eine r\u00fcckblickend ausgew\u00e4hlte Fallstudie. Kein Nachweis kausaler Kurswirkung oder handelbaren Alphas; kein News-/Wettervergleich. Historische Datenverf\u00fcgbarkeit und Leihbarkeit nicht belegt. Finanzierung, variable Leihs\u00e4tze, Steuern und tats\u00e4chliche Ausf\u00fchrung nicht modelliert.",
   "source": {
     "retrieved_at": "2026-10-24T20:42:53.649518+00:00",
     "source": "Yahoo Finance chart API",

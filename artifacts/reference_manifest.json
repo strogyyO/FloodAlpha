@@ -1,0 +1,882 @@
+{
+  "source": "Sen1Floods11 hand labels; Sentinel-2 L2A re-acquired from Planetary Computer",
+  "label_caveat": "Expert-edited labels were initialized from an optical index; not independent field measurements.",
+  "selection": "Fixed SHA256 ordering, up to requested chip count per event; pure 20m label blocks; uniform pixel samples",
+  "requested_chips": 88,
+  "downloaded_chips": 86,
+  "chips": [
+    {
+      "chip": "Bolivia_103757",
+      "event": "Bolivia",
+      "date": "2018-02-15",
+      "label_url": "https://storage.googleapis.com/sen1floods11/v1.1/data/flood_events/HandLabeled/LabelHand/Bolivia_103757_LabelHand.tif",
+      "l2a_scene": "S2B_MSIL2A_20180215T142849_R053_T20LKK_20201013T214144",
+      "valid_pixels": 16846,
+      "sample_pixels": 5000,
+      "processing_baseline": "02.12"
+    },
+    {
+      "chip": "Bolivia_379434",
+      "event": "Bolivia",
+      "date": "2018-02-15",
+      "label_url": "https://storage.googleapis.com/sen1floods11/v1.1/data/flood_events/HandLabeled/LabelHand/Bolivia_379434_LabelHand.tif",
+      "l2a_scene": "S2B_MSIL2A_20180215T142849_R053_T19LHD_20210517T003627",
+      "valid_pixels": 62505,
+      "sample_pixels": 5000,
+      "processing_baseline": "02.12"
+    },
+    {
+      "chip": "Bolivia_195474",
+      "event": "Bolivia",
+      "date": "2018-02-15",
+      "label_url": "https://storage.googleapis.com/sen1floods11/v1.1/data/flood_events/HandLabeled/LabelHand/Bolivia_195474_LabelHand.tif",
+      "l2a_scene": "S2B_MSIL2A_20180215T142849_R053_T20LKJ_20201013T214145",
+      "valid_pixels": 64508,
+      "sample_pixels": 5000,
+      "processing_baseline": "02.12"
+    },
+    {
+      "chip": "Bolivia_23014",
+      "event": "Bolivia",
+      "date": "2018-02-15",
+      "label_url": "https://storage.googleapis.com/sen1floods11/v1.1/data/flood_events/HandLabeled/LabelHand/Bolivia_23014_LabelHand.tif",
+      "l2a_scene": "S2B_MSIL2A_20180215T142849_R053_T20LKL_20201013T214141",
+      "valid_pixels": 51744,
+      "sample_pixels": 5000,
+      "processing_baseline": "02.12"
+    },
+    {
+      "chip": "Bolivia_60373",
+      "event": "Bolivia",
+      "date": "2018-02-15",
+      "label_url": "https://storage.googleapis.com/sen1floods11/v1.1/data/flood_events/HandLabeled/LabelHand/Bolivia_60373_LabelHand.tif",
+      "l2a_scene": "S2B_MSIL2A_20180215T142849_R053_T20LKL_20201013T214141",
+      "valid_pixels": 45337,
+      "sample_pixels": 5000,
+      "processing_baseline": "02.12"
+    },
+    {
+      "chip": "Bolivia_314919",
+      "event": "Bolivia",
+      "date": "2018-02-15",
+      "label_url": "https://storage.googleapis.com/sen1floods11/v1.1/data/flood_events/HandLabeled/LabelHand/Bolivia_314919_LabelHand.tif",
+      "l2a_scene": "S2B_MSIL2A_20180215T142849_R053_T20LKK_20201013T214144",
+      "valid_pixels": 35050,
+      "sample_pixels": 5000,
+      "processing_baseline": "02.12"
+    },
+    {
+      "chip": "Bolivia_432776",
+      "event": "Bolivia",
+      "date": "2018-02-15",
+      "label_url": "https://storage.googleapis.com/sen1floods11/v1.1/data/flood_events/HandLabeled/LabelHand/Bolivia_432776_LabelHand.tif",
+      "l2a_scene": "S2B_MSIL2A_20180215T142849_R053_T20LKK_20201013T214144",
+      "valid_pixels": 22394,
+      "sample_pixels": 5000,
+      "processing_baseline": "02.12"
+    },
+    {
+      "chip": "Bolivia_242570",
+      "event": "Bolivia",
+      "date": "2018-02-15",
+      "label_url": "https://storage.googleapis.com/sen1floods11/v1.1/data/flood_events/HandLabeled/LabelHand/Bolivia_242570_LabelHand.tif",
+      "l2a_scene": "S2B_MSIL2A_20180215T142849_R053_T20LLL_20201013T214153",
+      "valid_pixels": 38099,
+      "sample_pixels": 5000,
+      "processing_baseline": "02.12"
+    },
+    {
+      "chip": "Ghana_264787",
+      "event": "Ghana",
+      "date": "2018-09-19",
+      "label_url": "https://storage.googleapis.com/sen1floods11/v1.1/data/flood_events/HandLabeled/LabelHand/Ghana_264787_LabelHand.tif",
+      "l2a_scene": "S2A_MSIL2A_20180919T102021_R065_T30PYR_20201030T213343",
+      "valid_pixels": 36161,
+      "sample_pixels": 5000,
+      "processing_baseline": "02.12"
+    },
+    {
+      "chip": "Ghana_132163",
+      "event": "Ghana",
+      "date": "2018-09-19",
+      "label_url": "https://storage.googleapis.com/sen1floods11/v1.1/data/flood_events/HandLabeled/LabelHand/Ghana_132163_LabelHand.tif",
+      "l2a_scene": "S2A_MSIL2A_20180919T102021_R065_T30PYR_20201030T213343",
+      "valid_pixels": 11865,
+      "sample_pixels": 5000,
+      "processing_baseline": "02.12"
+    },
+    {
+      "chip": "Ghana_11745",
+      "event": "Ghana",
+      "date": "2018-09-19",
+      "label_url": "https://storage.googleapis.com/sen1floods11/v1.1/data/flood_events/HandLabeled/LabelHand/Ghana_11745_LabelHand.tif",
+      "l2a_scene": "S2A_MSIL2A_20180919T102021_R065_T30PXS_20201009T024339",
+      "valid_pixels": 65480,
+      "sample_pixels": 5000,
+      "processing_baseline": "02.12"
+    },
+    {
+      "chip": "Ghana_147015",
+      "event": "Ghana",
+      "date": "2018-09-19",
+      "label_url": "https://storage.googleapis.com/sen1floods11/v1.1/data/flood_events/HandLabeled/LabelHand/Ghana_147015_LabelHand.tif",
+      "l2a_scene": "S2A_MSIL2A_20180919T102021_R065_T30PXS_20201009T024339",
+      "valid_pixels": 64995,
+      "sample_pixels": 5000,
+      "processing_baseline": "02.12"
+    },
+    {
+      "chip": "Ghana_61925",
+      "event": "Ghana",
+      "date": "2018-09-19",
+      "label_url": "https://storage.googleapis.com/sen1floods11/v1.1/data/flood_events/HandLabeled/LabelHand/Ghana_61925_LabelHand.tif",
+      "l2a_scene": "S2A_MSIL2A_20180919T102021_R065_T30PXS_20201009T024339",
+      "valid_pixels": 64496,
+      "sample_pixels": 5000,
+      "processing_baseline": "02.12"
+    },
+    {
+      "chip": "Ghana_953791",
+      "event": "Ghana",
+      "date": "2018-09-19",
+      "label_url": "https://storage.googleapis.com/sen1floods11/v1.1/data/flood_events/HandLabeled/LabelHand/Ghana_953791_LabelHand.tif",
+      "l2a_scene": "S2A_MSIL2A_20180919T102021_R065_T30PYS_20201009T024341",
+      "valid_pixels": 65112,
+      "sample_pixels": 5000,
+      "processing_baseline": "02.12"
+    },
+    {
+      "chip": "Ghana_97059",
+      "event": "Ghana",
+      "date": "2018-09-19",
+      "label_url": "https://storage.googleapis.com/sen1floods11/v1.1/data/flood_events/HandLabeled/LabelHand/Ghana_97059_LabelHand.tif",
+      "l2a_scene": "S2A_MSIL2A_20180919T102021_R065_T30PYR_20201030T213343",
+      "valid_pixels": 6755,
+      "sample_pixels": 5000,
+      "processing_baseline": "02.12"
+    },
+    {
+      "chip": "India_592446",
+      "event": "India",
+      "date": "2016-08-12",
+      "label_url": "https://storage.googleapis.com/sen1floods11/v1.1/data/flood_events/HandLabeled/LabelHand/India_592446_LabelHand.tif",
+      "l2a_scene": "S2A_MSIL2A_20160812T041552_R090_T46RDP_20210212T132943",
+      "valid_pixels": 53983,
+      "sample_pixels": 5000,
+      "processing_baseline": "02.12"
+    },
+    {
+      "chip": "India_591317",
+      "event": "India",
+      "date": "2016-08-12",
+      "label_url": "https://storage.googleapis.com/sen1floods11/v1.1/data/flood_events/HandLabeled/LabelHand/India_591317_LabelHand.tif",
+      "l2a_scene": "S2A_MSIL2A_20160812T041552_R090_T46RDQ_20210212T132940",
+      "valid_pixels": 57825,
+      "sample_pixels": 5000,
+      "processing_baseline": "02.12"
+    },
+    {
+      "chip": "India_534470",
+      "event": "India",
+      "date": "2016-08-12",
+      "label_url": "https://storage.googleapis.com/sen1floods11/v1.1/data/flood_events/HandLabeled/LabelHand/India_534470_LabelHand.tif",
+      "l2a_scene": "S2A_MSIL2A_20160812T041552_R090_T46REP_20210212T132951",
+      "valid_pixels": 60083,
+      "sample_pixels": 5000,
+      "processing_baseline": "02.12"
+    },
+    {
+      "chip": "India_1050276",
+      "event": "India",
+      "date": "2016-08-12",
+      "label_url": "https://storage.googleapis.com/sen1floods11/v1.1/data/flood_events/HandLabeled/LabelHand/India_1050276_LabelHand.tif",
+      "l2a_scene": "S2A_MSIL2A_20160812T041552_R090_T46RDQ_20210212T132940",
+      "valid_pixels": 12677,
+      "sample_pixels": 5000,
+      "processing_baseline": "02.12"
+    },
+    {
+      "chip": "India_79637",
+      "event": "India",
+      "date": "2016-08-12",
+      "label_url": "https://storage.googleapis.com/sen1floods11/v1.1/data/flood_events/HandLabeled/LabelHand/India_79637_LabelHand.tif",
+      "l2a_scene": "S2A_MSIL2A_20160812T041552_R090_T46REQ_20210212T132947",
+      "valid_pixels": 64208,
+      "sample_pixels": 5000,
+      "processing_baseline": "02.12"
+    },
+    {
+      "chip": "India_943439",
+      "event": "India",
+      "date": "2016-08-12",
+      "label_url": "https://storage.googleapis.com/sen1floods11/v1.1/data/flood_events/HandLabeled/LabelHand/India_943439_LabelHand.tif",
+      "l2a_scene": "S2A_MSIL2A_20160812T041552_R090_T46REQ_20210212T132947",
+      "valid_pixels": 56231,
+      "sample_pixels": 5000,
+      "processing_baseline": "02.12"
+    },
+    {
+      "chip": "India_180633",
+      "event": "India",
+      "date": "2016-08-12",
+      "label_url": "https://storage.googleapis.com/sen1floods11/v1.1/data/flood_events/HandLabeled/LabelHand/India_180633_LabelHand.tif",
+      "l2a_scene": "S2A_MSIL2A_20160812T041552_R090_T46REQ_20210212T132947",
+      "valid_pixels": 36844,
+      "sample_pixels": 5000,
+      "processing_baseline": "02.12"
+    },
+    {
+      "chip": "India_166709",
+      "event": "India",
+      "date": "2016-08-12",
+      "label_url": "https://storage.googleapis.com/sen1floods11/v1.1/data/flood_events/HandLabeled/LabelHand/India_166709_LabelHand.tif",
+      "l2a_scene": "S2A_MSIL2A_20160812T041552_R090_T46REQ_20210212T132947",
+      "valid_pixels": 60620,
+      "sample_pixels": 5000,
+      "processing_baseline": "02.12"
+    },
+    {
+      "chip": "Mekong_846007",
+      "event": "Mekong",
+      "date": "2018-08-04",
+      "label_url": "https://storage.googleapis.com/sen1floods11/v1.1/data/flood_events/HandLabeled/LabelHand/Mekong_846007_LabelHand.tif",
+      "l2a_scene": "S2A_MSIL2A_20180804T031541_R118_T48PWU_20201010T205143",
+      "valid_pixels": 12220,
+      "sample_pixels": 5000,
+      "processing_baseline": "02.12"
+    },
+    {
+      "chip": "Mekong_1396181",
+      "event": "Mekong",
+      "date": "2018-08-04",
+      "label_url": "https://storage.googleapis.com/sen1floods11/v1.1/data/flood_events/HandLabeled/LabelHand/Mekong_1396181_LabelHand.tif",
+      "l2a_scene": "S2A_MSIL2A_20180804T031541_R118_T48PXU_20201010T205143",
+      "valid_pixels": 42879,
+      "sample_pixels": 5000,
+      "processing_baseline": "02.12"
+    },
+    {
+      "chip": "Mekong_474783",
+      "event": "Mekong",
+      "date": "2018-08-04",
+      "label_url": "https://storage.googleapis.com/sen1floods11/v1.1/data/flood_events/HandLabeled/LabelHand/Mekong_474783_LabelHand.tif",
+      "l2a_scene": "S2A_MSIL2A_20180804T031541_R118_T48PWU_20201010T205143",
+      "valid_pixels": 63855,
+      "sample_pixels": 5000,
+      "processing_baseline": "02.12"
+    },
+    {
+      "chip": "Mekong_213094",
+      "event": "Mekong",
+      "date": "2018-08-04",
+      "label_url": "https://storage.googleapis.com/sen1floods11/v1.1/data/flood_events/HandLabeled/LabelHand/Mekong_213094_LabelHand.tif",
+      "l2a_scene": "S2A_MSIL2A_20180804T031541_R118_T48PWV_20201010T205142",
+      "valid_pixels": 54461,
+      "sample_pixels": 5000,
+      "processing_baseline": "02.12"
+    },
+    {
+      "chip": "Mekong_1439641",
+      "event": "Mekong",
+      "date": "2018-08-04",
+      "label_url": "https://storage.googleapis.com/sen1floods11/v1.1/data/flood_events/HandLabeled/LabelHand/Mekong_1439641_LabelHand.tif",
+      "l2a_scene": "S2A_MSIL2A_20180804T031541_R118_T48PXU_20201010T205143",
+      "valid_pixels": 57723,
+      "sample_pixels": 5000,
+      "processing_baseline": "02.12"
+    },
+    {
+      "chip": "Mekong_45934",
+      "event": "Mekong",
+      "date": "2018-08-04",
+      "label_url": "https://storage.googleapis.com/sen1floods11/v1.1/data/flood_events/HandLabeled/LabelHand/Mekong_45934_LabelHand.tif",
+      "l2a_scene": "S2A_MSIL2A_20180804T031541_R118_T48PWU_20201010T205143",
+      "valid_pixels": 65154,
+      "sample_pixels": 5000,
+      "processing_baseline": "02.12"
+    },
+    {
+      "chip": "Mekong_1413877",
+      "event": "Mekong",
+      "date": "2018-08-04",
+      "label_url": "https://storage.googleapis.com/sen1floods11/v1.1/data/flood_events/HandLabeled/LabelHand/Mekong_1413877_LabelHand.tif",
+      "l2a_scene": "S2A_MSIL2A_20180804T031541_R118_T48PXU_20201010T205143",
+      "valid_pixels": 62715,
+      "sample_pixels": 5000,
+      "processing_baseline": "02.12"
+    },
+    {
+      "chip": "Mekong_1248200",
+      "event": "Mekong",
+      "date": "2018-08-04",
+      "label_url": "https://storage.googleapis.com/sen1floods11/v1.1/data/flood_events/HandLabeled/LabelHand/Mekong_1248200_LabelHand.tif",
+      "l2a_scene": "S2A_MSIL2A_20180804T031541_R118_T48PXU_20201010T205143",
+      "valid_pixels": 59591,
+      "sample_pixels": 5000,
+      "processing_baseline": "02.12"
+    },
+    {
+      "chip": "Nigeria_1095404",
+      "event": "Nigeria",
+      "date": "2018-09-20",
+      "label_url": "https://storage.googleapis.com/sen1floods11/v1.1/data/flood_events/HandLabeled/LabelHand/Nigeria_1095404_LabelHand.tif",
+      "l2a_scene": "S2A_MSIL2A_20180920T095021_R079_T31PGK_20201009T030207",
+      "valid_pixels": 57028,
+      "sample_pixels": 5000,
+      "processing_baseline": "02.12"
+    },
+    {
+      "chip": "Nigeria_35845",
+      "event": "Nigeria",
+      "date": "2018-09-20",
+      "label_url": "https://storage.googleapis.com/sen1floods11/v1.1/data/flood_events/HandLabeled/LabelHand/Nigeria_35845_LabelHand.tif",
+      "l2a_scene": "S2A_MSIL2A_20180920T095021_R079_T31PGK_20201009T030207",
+      "valid_pixels": 50777,
+      "sample_pixels": 5000,
+      "processing_baseline": "02.12"
+    },
+    {
+      "chip": "Nigeria_529525",
+      "event": "Nigeria",
+      "date": "2018-09-20",
+      "label_url": "https://storage.googleapis.com/sen1floods11/v1.1/data/flood_events/HandLabeled/LabelHand/Nigeria_529525_LabelHand.tif",
+      "l2a_scene": "S2A_MSIL2A_20180920T095021_R079_T31PGK_20201009T030207",
+      "valid_pixels": 47056,
+      "sample_pixels": 5000,
+      "processing_baseline": "02.12"
+    },
+    {
+      "chip": "Nigeria_22088",
+      "event": "Nigeria",
+      "date": "2018-09-20",
+      "label_url": "https://storage.googleapis.com/sen1floods11/v1.1/data/flood_events/HandLabeled/LabelHand/Nigeria_22088_LabelHand.tif",
+      "l2a_scene": "S2A_MSIL2A_20180920T095021_R079_T31PHL_20201009T030211",
+      "valid_pixels": 55465,
+      "sample_pixels": 5000,
+      "processing_baseline": "02.12"
+    },
+    {
+      "chip": "Nigeria_984831",
+      "event": "Nigeria",
+      "date": "2018-09-20",
+      "label_url": "https://storage.googleapis.com/sen1floods11/v1.1/data/flood_events/HandLabeled/LabelHand/Nigeria_984831_LabelHand.tif",
+      "l2a_scene": "S2A_MSIL2A_20180920T095021_R079_T31PHK_20201009T030210",
+      "valid_pixels": 56434,
+      "sample_pixels": 5000,
+      "processing_baseline": "02.12"
+    },
+    {
+      "chip": "Nigeria_598959",
+      "event": "Nigeria",
+      "date": "2018-09-20",
+      "label_url": "https://storage.googleapis.com/sen1floods11/v1.1/data/flood_events/HandLabeled/LabelHand/Nigeria_598959_LabelHand.tif",
+      "l2a_scene": "S2A_MSIL2A_20180920T095021_R079_T31PGK_20201009T030207",
+      "valid_pixels": 47339,
+      "sample_pixels": 5000,
+      "processing_baseline": "02.12"
+    },
+    {
+      "chip": "Nigeria_81933",
+      "event": "Nigeria",
+      "date": "2018-09-20",
+      "label_url": "https://storage.googleapis.com/sen1floods11/v1.1/data/flood_events/HandLabeled/LabelHand/Nigeria_81933_LabelHand.tif",
+      "l2a_scene": "S2A_MSIL2A_20180920T095021_R079_T31PGK_20201009T030207",
+      "valid_pixels": 39760,
+      "sample_pixels": 5000,
+      "processing_baseline": "02.12"
+    },
+    {
+      "chip": "Nigeria_707067",
+      "event": "Nigeria",
+      "date": "2018-09-20",
+      "label_url": "https://storage.googleapis.com/sen1floods11/v1.1/data/flood_events/HandLabeled/LabelHand/Nigeria_707067_LabelHand.tif",
+      "l2a_scene": "S2A_MSIL2A_20180920T095021_R079_T31PGM_20201009T030200",
+      "valid_pixels": 64079,
+      "sample_pixels": 5000,
+      "processing_baseline": "02.12"
+    },
+    {
+      "chip": "Pakistan_35915",
+      "event": "Pakistan",
+      "date": "2017-06-28",
+      "label_url": "https://storage.googleapis.com/sen1floods11/v1.1/data/flood_events/HandLabeled/LabelHand/Pakistan_35915_LabelHand.tif",
+      "l2a_scene": "S2A_MSIL2A_20170628T055631_R091_T42RXT_20210210T021426",
+      "valid_pixels": 978,
+      "sample_pixels": 978,
+      "processing_baseline": "02.12"
+    },
+    {
+      "chip": "Pakistan_9684",
+      "event": "Pakistan",
+      "date": "2017-06-28",
+      "label_url": "https://storage.googleapis.com/sen1floods11/v1.1/data/flood_events/HandLabeled/LabelHand/Pakistan_9684_LabelHand.tif",
+      "l2a_scene": "S2A_MSIL2A_20170628T055631_R091_T42RXT_20210210T021426",
+      "valid_pixels": 12526,
+      "sample_pixels": 5000,
+      "processing_baseline": "02.12"
+    },
+    {
+      "chip": "Pakistan_548910",
+      "event": "Pakistan",
+      "date": "2017-06-28",
+      "label_url": "https://storage.googleapis.com/sen1floods11/v1.1/data/flood_events/HandLabeled/LabelHand/Pakistan_548910_LabelHand.tif",
+      "l2a_scene": "S2A_MSIL2A_20170628T055631_R091_T42RXU_20210210T021429",
+      "valid_pixels": 29669,
+      "sample_pixels": 5000,
+      "processing_baseline": "02.12"
+    },
+    {
+      "chip": "Pakistan_246510",
+      "event": "Pakistan",
+      "date": "2017-06-28",
+      "label_url": "https://storage.googleapis.com/sen1floods11/v1.1/data/flood_events/HandLabeled/LabelHand/Pakistan_246510_LabelHand.tif",
+      "l2a_scene": "S2A_MSIL2A_20170628T055631_R091_T42RXU_20210210T021429",
+      "valid_pixels": 60028,
+      "sample_pixels": 5000,
+      "processing_baseline": "02.12"
+    },
+    {
+      "chip": "Pakistan_1036366",
+      "event": "Pakistan",
+      "date": "2017-06-28",
+      "label_url": "https://storage.googleapis.com/sen1floods11/v1.1/data/flood_events/HandLabeled/LabelHand/Pakistan_1036366_LabelHand.tif",
+      "l2a_scene": "S2A_MSIL2A_20170628T055631_R091_T42RXT_20210210T021426",
+      "valid_pixels": 2721,
+      "sample_pixels": 2721,
+      "processing_baseline": "02.12"
+    },
+    {
+      "chip": "Pakistan_94095",
+      "event": "Pakistan",
+      "date": "2017-06-28",
+      "label_url": "https://storage.googleapis.com/sen1floods11/v1.1/data/flood_events/HandLabeled/LabelHand/Pakistan_94095_LabelHand.tif",
+      "l2a_scene": "S2A_MSIL2A_20170628T055631_R091_T42RXU_20210210T021429",
+      "valid_pixels": 13558,
+      "sample_pixels": 5000,
+      "processing_baseline": "02.12"
+    },
+    {
+      "chip": "Pakistan_760290",
+      "event": "Pakistan",
+      "date": "2017-06-28",
+      "label_url": "https://storage.googleapis.com/sen1floods11/v1.1/data/flood_events/HandLabeled/LabelHand/Pakistan_760290_LabelHand.tif",
+      "l2a_scene": "S2A_MSIL2A_20170628T055631_R091_T43SBT_20210210T021450",
+      "valid_pixels": 57178,
+      "sample_pixels": 5000,
+      "processing_baseline": "02.12"
+    },
+    {
+      "chip": "Pakistan_210595",
+      "event": "Pakistan",
+      "date": "2017-06-28",
+      "label_url": "https://storage.googleapis.com/sen1floods11/v1.1/data/flood_events/HandLabeled/LabelHand/Pakistan_210595_LabelHand.tif",
+      "l2a_scene": "S2A_MSIL2A_20170628T055631_R091_T43SBT_20210210T021450",
+      "valid_pixels": 64709,
+      "sample_pixels": 5000,
+      "processing_baseline": "02.12"
+    },
+    {
+      "chip": "Paraguay_153941",
+      "event": "Paraguay",
+      "date": "2018-10-31",
+      "label_url": "https://storage.googleapis.com/sen1floods11/v1.1/data/flood_events/HandLabeled/LabelHand/Paraguay_153941_LabelHand.tif",
+      "l2a_scene": "S2B_MSIL2A_20181031T135109_R024_T21KWQ_20201009T171456",
+      "valid_pixels": 64197,
+      "sample_pixels": 5000,
+      "processing_baseline": "02.12"
+    },
+    {
+      "chip": "Paraguay_44682",
+      "event": "Paraguay",
+      "date": "2018-10-31",
+      "label_url": "https://storage.googleapis.com/sen1floods11/v1.1/data/flood_events/HandLabeled/LabelHand/Paraguay_44682_LabelHand.tif",
+      "l2a_scene": "S2B_MSIL2A_20181031T135109_R024_T21KVP_20201009T171448",
+      "valid_pixels": 65241,
+      "sample_pixels": 5000,
+      "processing_baseline": "02.12"
+    },
+    {
+      "chip": "Paraguay_657443",
+      "event": "Paraguay",
+      "date": "2018-10-31",
+      "label_url": "https://storage.googleapis.com/sen1floods11/v1.1/data/flood_events/HandLabeled/LabelHand/Paraguay_657443_LabelHand.tif",
+      "l2a_scene": "S2B_MSIL2A_20181031T135109_R024_T21KVP_20201009T171448",
+      "valid_pixels": 62682,
+      "sample_pixels": 5000,
+      "processing_baseline": "02.12"
+    },
+    {
+      "chip": "Paraguay_1056717",
+      "event": "Paraguay",
+      "date": "2018-10-31",
+      "label_url": "https://storage.googleapis.com/sen1floods11/v1.1/data/flood_events/HandLabeled/LabelHand/Paraguay_1056717_LabelHand.tif",
+      "l2a_scene": "S2B_MSIL2A_20181031T135109_R024_T21KWQ_20201009T171456",
+      "valid_pixels": 64722,
+      "sample_pixels": 5000,
+      "processing_baseline": "02.12"
+    },
+    {
+      "chip": "Paraguay_149830",
+      "event": "Paraguay",
+      "date": "2018-10-31",
+      "label_url": "https://storage.googleapis.com/sen1floods11/v1.1/data/flood_events/HandLabeled/LabelHand/Paraguay_149830_LabelHand.tif",
+      "l2a_scene": "S2B_MSIL2A_20181031T135109_R024_T21JVN_20201009T171449",
+      "valid_pixels": 64395,
+      "sample_pixels": 5000,
+      "processing_baseline": "02.12"
+    },
+    {
+      "chip": "Paraguay_54421",
+      "event": "Paraguay",
+      "date": "2018-10-31",
+      "label_url": "https://storage.googleapis.com/sen1floods11/v1.1/data/flood_events/HandLabeled/LabelHand/Paraguay_54421_LabelHand.tif",
+      "l2a_scene": "S2B_MSIL2A_20181031T135109_R024_T21KWP_20201009T171453",
+      "valid_pixels": 41390,
+      "sample_pixels": 5000,
+      "processing_baseline": "02.12"
+    },
+    {
+      "chip": "Paraguay_683296",
+      "event": "Paraguay",
+      "date": "2018-10-31",
+      "label_url": "https://storage.googleapis.com/sen1floods11/v1.1/data/flood_events/HandLabeled/LabelHand/Paraguay_683296_LabelHand.tif",
+      "l2a_scene": "S2B_MSIL2A_20181031T135109_R024_T21KVP_20201009T171448",
+      "valid_pixels": 63093,
+      "sample_pixels": 5000,
+      "processing_baseline": "02.12"
+    },
+    {
+      "chip": "Somalia_322855",
+      "event": "Somalia",
+      "date": "2018-05-05",
+      "label_url": "https://storage.googleapis.com/sen1floods11/v1.1/data/flood_events/HandLabeled/LabelHand/Somalia_322855_LabelHand.tif",
+      "l2a_scene": "S2A_MSIL2A_20180505T070621_R106_T38NNJ_20201012T060208",
+      "valid_pixels": 58526,
+      "sample_pixels": 5000,
+      "processing_baseline": "02.12"
+    },
+    {
+      "chip": "Somalia_94102",
+      "event": "Somalia",
+      "date": "2018-05-05",
+      "label_url": "https://storage.googleapis.com/sen1floods11/v1.1/data/flood_events/HandLabeled/LabelHand/Somalia_94102_LabelHand.tif",
+      "l2a_scene": "S2A_MSIL2A_20180505T070621_R106_T38NNL_20201012T060208",
+      "valid_pixels": 56209,
+      "sample_pixels": 5000,
+      "processing_baseline": "02.12"
+    },
+    {
+      "chip": "Somalia_60129",
+      "event": "Somalia",
+      "date": "2018-05-05",
+      "label_url": "https://storage.googleapis.com/sen1floods11/v1.1/data/flood_events/HandLabeled/LabelHand/Somalia_60129_LabelHand.tif",
+      "l2a_scene": "S2A_MSIL2A_20180505T070621_R106_T38NNK_20201012T060207",
+      "valid_pixels": 51897,
+      "sample_pixels": 5000,
+      "processing_baseline": "02.12"
+    },
+    {
+      "chip": "Somalia_295782",
+      "event": "Somalia",
+      "date": "2018-05-05",
+      "label_url": "https://storage.googleapis.com/sen1floods11/v1.1/data/flood_events/HandLabeled/LabelHand/Somalia_295782_LabelHand.tif",
+      "l2a_scene": "S2A_MSIL2A_20180505T070621_R106_T38NNJ_20201012T060208",
+      "valid_pixels": 41101,
+      "sample_pixels": 5000,
+      "processing_baseline": "02.12"
+    },
+    {
+      "chip": "Somalia_205466",
+      "event": "Somalia",
+      "date": "2018-05-05",
+      "label_url": "https://storage.googleapis.com/sen1floods11/v1.1/data/flood_events/HandLabeled/LabelHand/Somalia_205466_LabelHand.tif",
+      "l2a_scene": "S2A_MSIL2A_20180505T070621_R106_T38NNK_20201012T060207",
+      "valid_pixels": 58647,
+      "sample_pixels": 5000,
+      "processing_baseline": "02.12"
+    },
+    {
+      "chip": "Somalia_992457",
+      "event": "Somalia",
+      "date": "2018-05-05",
+      "label_url": "https://storage.googleapis.com/sen1floods11/v1.1/data/flood_events/HandLabeled/LabelHand/Somalia_992457_LabelHand.tif",
+      "l2a_scene": "S2A_MSIL2A_20180505T070621_R106_T38NNJ_20201012T060208",
+      "valid_pixels": 34307,
+      "sample_pixels": 5000,
+      "processing_baseline": "02.12"
+    },
+    {
+      "chip": "Somalia_649376",
+      "event": "Somalia",
+      "date": "2018-05-05",
+      "label_url": "https://storage.googleapis.com/sen1floods11/v1.1/data/flood_events/HandLabeled/LabelHand/Somalia_649376_LabelHand.tif",
+      "l2a_scene": "S2A_MSIL2A_20180505T070621_R106_T38NNH_20201012T060204",
+      "valid_pixels": 48140,
+      "sample_pixels": 5000,
+      "processing_baseline": "02.12"
+    },
+    {
+      "chip": "Somalia_166342",
+      "event": "Somalia",
+      "date": "2018-05-05",
+      "label_url": "https://storage.googleapis.com/sen1floods11/v1.1/data/flood_events/HandLabeled/LabelHand/Somalia_166342_LabelHand.tif",
+      "l2a_scene": "S2A_MSIL2A_20180505T070621_R106_T38NNK_20201012T060207",
+      "valid_pixels": 51821,
+      "sample_pixels": 5000,
+      "processing_baseline": "02.12"
+    },
+    {
+      "chip": "Spain_5678382",
+      "event": "Spain",
+      "date": "2019-09-18",
+      "label_url": "https://storage.googleapis.com/sen1floods11/v1.1/data/flood_events/HandLabeled/LabelHand/Spain_5678382_LabelHand.tif",
+      "l2a_scene": "S2B_MSIL2A_20190918T105029_R051_T30SXH_20201004T144137",
+      "valid_pixels": 64572,
+      "sample_pixels": 5000,
+      "processing_baseline": "02.12"
+    },
+    {
+      "chip": "Spain_7387658",
+      "event": "Spain",
+      "date": "2019-09-18",
+      "label_url": "https://storage.googleapis.com/sen1floods11/v1.1/data/flood_events/HandLabeled/LabelHand/Spain_7387658_LabelHand.tif",
+      "l2a_scene": "S2B_MSIL2A_20190918T105029_R051_T30SXH_20201004T144137",
+      "valid_pixels": 45800,
+      "sample_pixels": 5000,
+      "processing_baseline": "02.12"
+    },
+    {
+      "chip": "Spain_6199994",
+      "event": "Spain",
+      "date": "2019-09-18",
+      "label_url": "https://storage.googleapis.com/sen1floods11/v1.1/data/flood_events/HandLabeled/LabelHand/Spain_6199994_LabelHand.tif",
+      "l2a_scene": "S2B_MSIL2A_20190918T105029_R051_T30SYH_20201004T144135",
+      "valid_pixels": 62987,
+      "sample_pixels": 5000,
+      "processing_baseline": "02.12"
+    },
+    {
+      "chip": "Spain_7558720",
+      "event": "Spain",
+      "date": "2019-09-18",
+      "label_url": "https://storage.googleapis.com/sen1floods11/v1.1/data/flood_events/HandLabeled/LabelHand/Spain_7558720_LabelHand.tif",
+      "l2a_scene": "S2B_MSIL2A_20190918T105029_R051_T30SXH_20201004T144137",
+      "valid_pixels": 64822,
+      "sample_pixels": 5000,
+      "processing_baseline": "02.12"
+    },
+    {
+      "chip": "Spain_8104659",
+      "event": "Spain",
+      "date": "2019-09-18",
+      "label_url": "https://storage.googleapis.com/sen1floods11/v1.1/data/flood_events/HandLabeled/LabelHand/Spain_8104659_LabelHand.tif",
+      "l2a_scene": "S2B_MSIL2A_20190918T105029_R051_T30SXH_20201004T144137",
+      "valid_pixels": 64815,
+      "sample_pixels": 5000,
+      "processing_baseline": "02.12"
+    },
+    {
+      "chip": "Spain_6860600",
+      "event": "Spain",
+      "date": "2019-09-18",
+      "label_url": "https://storage.googleapis.com/sen1floods11/v1.1/data/flood_events/HandLabeled/LabelHand/Spain_6860600_LabelHand.tif",
+      "l2a_scene": "S2B_MSIL2A_20190918T105029_R051_T30SYH_20201004T144135",
+      "valid_pixels": 64894,
+      "sample_pixels": 5000,
+      "processing_baseline": "02.12"
+    },
+    {
+      "chip": "Spain_8199661",
+      "event": "Spain",
+      "date": "2019-09-18",
+      "label_url": "https://storage.googleapis.com/sen1floods11/v1.1/data/flood_events/HandLabeled/LabelHand/Spain_8199661_LabelHand.tif",
+      "l2a_scene": "S2B_MSIL2A_20190918T105029_R051_T30SXH_20201004T144137",
+      "valid_pixels": 64320,
+      "sample_pixels": 5000,
+      "processing_baseline": "02.12"
+    },
+    {
+      "chip": "Spain_6095801",
+      "event": "Spain",
+      "date": "2019-09-18",
+      "label_url": "https://storage.googleapis.com/sen1floods11/v1.1/data/flood_events/HandLabeled/LabelHand/Spain_6095801_LabelHand.tif",
+      "l2a_scene": "S2B_MSIL2A_20190918T105029_R051_T30SXH_20201004T144137",
+      "valid_pixels": 62214,
+      "sample_pixels": 5000,
+      "processing_baseline": "02.12"
+    },
+    {
+      "chip": "Sri-Lanka_52223",
+      "event": "Sri-Lanka",
+      "date": "2017-05-28",
+      "label_url": "https://storage.googleapis.com/sen1floods11/v1.1/data/flood_events/HandLabeled/LabelHand/Sri-Lanka_52223_LabelHand.tif",
+      "l2a_scene": "S2A_MSIL2A_20170528T050611_R076_T44NNP_20210209T184132",
+      "valid_pixels": 65280,
+      "sample_pixels": 5000,
+      "processing_baseline": "02.12"
+    },
+    {
+      "chip": "Sri-Lanka_922192",
+      "event": "Sri-Lanka",
+      "date": "2017-05-28",
+      "label_url": "https://storage.googleapis.com/sen1floods11/v1.1/data/flood_events/HandLabeled/LabelHand/Sri-Lanka_922192_LabelHand.tif",
+      "l2a_scene": "S2A_MSIL2A_20170528T050611_R076_T44NNN_20210209T184119",
+      "valid_pixels": 33967,
+      "sample_pixels": 5000,
+      "processing_baseline": "02.12"
+    },
+    {
+      "chip": "Sri-Lanka_450918",
+      "event": "Sri-Lanka",
+      "date": "2017-05-28",
+      "label_url": "https://storage.googleapis.com/sen1floods11/v1.1/data/flood_events/HandLabeled/LabelHand/Sri-Lanka_450918_LabelHand.tif",
+      "l2a_scene": "S2A_MSIL2A_20170528T050611_R076_T44NMM_20210209T184116",
+      "valid_pixels": 17382,
+      "sample_pixels": 5000,
+      "processing_baseline": "02.12"
+    },
+    {
+      "chip": "Sri-Lanka_132922",
+      "event": "Sri-Lanka",
+      "date": "2017-05-28",
+      "label_url": "https://storage.googleapis.com/sen1floods11/v1.1/data/flood_events/HandLabeled/LabelHand/Sri-Lanka_132922_LabelHand.tif",
+      "l2a_scene": "S2A_MSIL2A_20170528T050611_R076_T44NNP_20210209T184132",
+      "valid_pixels": 62026,
+      "sample_pixels": 5000,
+      "processing_baseline": "02.12"
+    },
+    {
+      "chip": "Sri-Lanka_178753",
+      "event": "Sri-Lanka",
+      "date": "2017-05-28",
+      "label_url": "https://storage.googleapis.com/sen1floods11/v1.1/data/flood_events/HandLabeled/LabelHand/Sri-Lanka_178753_LabelHand.tif",
+      "l2a_scene": "S2A_MSIL2A_20170528T050611_R076_T44NMN_20210209T184113",
+      "valid_pixels": 60056,
+      "sample_pixels": 5000,
+      "processing_baseline": "02.12"
+    },
+    {
+      "chip": "Sri-Lanka_523539",
+      "event": "Sri-Lanka",
+      "date": "2017-05-28",
+      "label_url": "https://storage.googleapis.com/sen1floods11/v1.1/data/flood_events/HandLabeled/LabelHand/Sri-Lanka_523539_LabelHand.tif",
+      "l2a_scene": "S2A_MSIL2A_20170528T050611_R076_T44NNM_20210209T184121",
+      "valid_pixels": 49377,
+      "sample_pixels": 5000,
+      "processing_baseline": "02.12"
+    },
+    {
+      "chip": "Sri-Lanka_31559",
+      "event": "Sri-Lanka",
+      "date": "2017-05-28",
+      "label_url": "https://storage.googleapis.com/sen1floods11/v1.1/data/flood_events/HandLabeled/LabelHand/Sri-Lanka_31559_LabelHand.tif",
+      "l2a_scene": "S2A_MSIL2A_20170528T050611_R076_T44NMN_20210209T184113",
+      "valid_pixels": 44980,
+      "sample_pixels": 5000,
+      "processing_baseline": "02.12"
+    },
+    {
+      "chip": "Sri-Lanka_653336",
+      "event": "Sri-Lanka",
+      "date": "2017-05-28",
+      "label_url": "https://storage.googleapis.com/sen1floods11/v1.1/data/flood_events/HandLabeled/LabelHand/Sri-Lanka_653336_LabelHand.tif",
+      "l2a_scene": "S2A_MSIL2A_20170528T050611_R076_T44NNP_20210209T184132",
+      "valid_pixels": 63672,
+      "sample_pixels": 5000,
+      "processing_baseline": "02.12"
+    },
+    {
+      "chip": "USA_231124",
+      "event": "USA",
+      "date": "2019-05-22",
+      "label_url": "https://storage.googleapis.com/sen1floods11/v1.1/data/flood_events/HandLabeled/LabelHand/USA_231124_LabelHand.tif",
+      "l2a_scene": "S2B_MSIL2A_20190522T165859_R069_T15STC_20201006T171215",
+      "valid_pixels": 28895,
+      "sample_pixels": 5000,
+      "processing_baseline": "02.12"
+    },
+    {
+      "chip": "USA_66511",
+      "event": "USA",
+      "date": "2019-05-22",
+      "label_url": "https://storage.googleapis.com/sen1floods11/v1.1/data/flood_events/HandLabeled/LabelHand/USA_66511_LabelHand.tif",
+      "l2a_scene": "S2B_MSIL2A_20190522T165859_R069_T15TUE_20201006T171219",
+      "valid_pixels": 64950,
+      "sample_pixels": 5000,
+      "processing_baseline": "02.12"
+    },
+    {
+      "chip": "USA_84195",
+      "event": "USA",
+      "date": "2019-05-22",
+      "label_url": "https://storage.googleapis.com/sen1floods11/v1.1/data/flood_events/HandLabeled/LabelHand/USA_84195_LabelHand.tif",
+      "l2a_scene": "S2B_MSIL2A_20190522T165859_R069_T15SUC_20201006T171222",
+      "valid_pixels": 64975,
+      "sample_pixels": 5000,
+      "processing_baseline": "02.12"
+    },
+    {
+      "chip": "USA_86502",
+      "event": "USA",
+      "date": "2019-05-22",
+      "label_url": "https://storage.googleapis.com/sen1floods11/v1.1/data/flood_events/HandLabeled/LabelHand/USA_86502_LabelHand.tif",
+      "l2a_scene": "S2B_MSIL2A_20190522T165859_R069_T15SUD_20201006T171222",
+      "valid_pixels": 61617,
+      "sample_pixels": 5000,
+      "processing_baseline": "02.12"
+    },
+    {
+      "chip": "USA_350244",
+      "event": "USA",
+      "date": "2019-05-22",
+      "label_url": "https://storage.googleapis.com/sen1floods11/v1.1/data/flood_events/HandLabeled/LabelHand/USA_350244_LabelHand.tif",
+      "l2a_scene": "S2B_MSIL2A_20190522T165859_R069_T15TUE_20201006T171219",
+      "valid_pixels": 65156,
+      "sample_pixels": 5000,
+      "processing_baseline": "02.12"
+    },
+    {
+      "chip": "USA_670826",
+      "event": "USA",
+      "date": "2019-05-22",
+      "label_url": "https://storage.googleapis.com/sen1floods11/v1.1/data/flood_events/HandLabeled/LabelHand/USA_670826_LabelHand.tif",
+      "l2a_scene": "S2B_MSIL2A_20190522T165859_R069_T15SUD_20201006T171222",
+      "valid_pixels": 64995,
+      "sample_pixels": 5000,
+      "processing_baseline": "02.12"
+    },
+    {
+      "chip": "USA_652955",
+      "event": "USA",
+      "date": "2019-05-22",
+      "label_url": "https://storage.googleapis.com/sen1floods11/v1.1/data/flood_events/HandLabeled/LabelHand/USA_652955_LabelHand.tif",
+      "l2a_scene": "S2B_MSIL2A_20190522T165859_R069_T15TUE_20201006T171219",
+      "valid_pixels": 15258,
+      "sample_pixels": 5000,
+      "processing_baseline": "02.12"
+    },
+    {
+      "chip": "USA_387945",
+      "event": "USA",
+      "date": "2019-05-22",
+      "label_url": "https://storage.googleapis.com/sen1floods11/v1.1/data/flood_events/HandLabeled/LabelHand/USA_387945_LabelHand.tif",
+      "l2a_scene": "S2B_MSIL2A_20190522T165859_R069_T15TUE_20201006T171219",
+      "valid_pixels": 63960,
+      "sample_pixels": 5000,
+      "processing_baseline": "02.12"
+    }
+  ],
+  "errors": [
+    {
+      "chip": "Ghana_5079",
+      "error": "Fewer than 200 clear independently labelled pixels"
+    },
+    {
+      "chip": "Paraguay_40936",
+      "error": "Fewer than 200 clear independently labelled pixels"
+    }
+  ],
+  "retrieved_at": "2026-10-24T22:03:37.130094+00:00",
+  "license": "Publicly downloadable; citation requested by source. Specific redistribution license not verified.",
+  "doi": "10.1109/CVPRW50498.2020.00113"
+}

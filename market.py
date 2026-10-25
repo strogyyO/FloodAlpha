@@ -1,5 +1,4 @@
-"""Real daily prices, real pre-event segment financials, and an explicitly hypothetical,
-fixed-rule event study for the one company this case study curates a site mapping for."""
+"""Real daily prices and an explicitly hypothetical, fixed-rule event study."""
 from datetime import datetime, timezone
 import json
 from pathlib import Path
@@ -37,25 +36,14 @@ def market_rows(ticker):
     return rows, result.get("events", {})
 
 
-def financial_profile():
-    """Real, pre-event segment revenue for the one company this case study maps to a site.
-
-    Filed before the flood (6 Feb 2024 earnings release): this is the scale of the company's
-    whole South America segment, not a Canoas-facility-specific figure, and it is not itself a
-    market reaction to the event. See data/company_financials.json for the source.
-    """
-    return json.loads((DATA / "company_financials.json").read_text())
-
-
 def plan(analysis):
     site = next((s for s in analysis["sites"] if s["id"] == SITE_ID), None)
     trigger = site is not None and site["direct_fraction"] is not None and (site["direct_fraction"] >= .05 or (site["road_fraction"] or 0) >= .10)
     return {"ticker": "AGCO", "site_id": SITE_ID, "company_source": COMPANY_SOURCE,
-            "financial_profile": financial_profile(),
-            "rule": "If >=5% direct exposure or >=10% wet access roads: hypothetically short AGCO and long SPY, $1 initial notional each; otherwise no position.",
-            "triggered": trigger, "action": "Candidate position: short AGCO / long SPY" if trigger else "No position under the fixed rule",
+            "rule": "Bei ≥5 % direkter Exposition oder ≥10 % nassem Straßenumfeld: hypothetisch Short AGCO und Long SPY, je 1 USD Ausgangsnotional; sonst keine Position.",
+            "triggered": trigger, "action": "Prüfposition: Short AGCO / Long SPY" if trigger else "Keine Position nach der festgelegten Regel",
             "signal_date": "2024-05-06", "entry_date": "2024-05-07", "exit_date": "2024-05-21",
-            "assumptions": "Entry at the next trading day's open, exit at the close on 21 May. No real order is placed. Exposure is not proof of a company outage. SPY is a rough market comparison, not a beta/sector hedge."}
+            "assumptions": "Eintritt zum nächsten Börsentages-Open, Austritt zum Close am 21. Mai. Keine echte Order. Exposition ist kein Nachweis eines Unternehmensausfalls. SPY ist ein grober Marktvergleich, kein Beta-/Sektorhedge."}
 
 
 def event_study(analysis):
@@ -95,7 +83,7 @@ def event_study(analysis):
             "gross_pnl_usd_per_2usd": gross, "net_pnl_usd_per_2usd": gross-transaction_cost-borrow_cost,
             "net_return_on_gross_exposure": (gross-transaction_cost-borrow_cost)/2,
             "costs": {"transaction_usd": transaction_cost, "borrow_usd": borrow_cost, "per_execution_bps": 10, "annual_borrow_rate": .05},
-            "limitations": "A retrospectively chosen case study. No evidence of causal price impact or tradable alpha; no news/weather comparison. Historical data availability and borrowability are not demonstrated. Funding, variable borrow rates, taxes and real execution are not modeled.",
+            "limitations": "Eine rückblickend ausgewählte Fallstudie. Kein Nachweis kausaler Kurswirkung oder handelbaren Alphas; kein News-/Wettervergleich. Historische Datenverfügbarkeit und Leihbarkeit nicht belegt. Finanzierung, variable Leihsätze, Steuern und tatsächliche Ausführung nicht modelliert.",
             "source": json.loads((DATA / "market_manifest.json").read_text())}
 
 
