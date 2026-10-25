@@ -103,6 +103,40 @@
   </div>
 </section>
 
+<section class="quant-demo">
+  <div class="exposure-head">
+    <div>
+      <h2 data-i18n="quant_title">Alt-Data-Signalexplorer</h2>
+      <p class="desc" data-i18n="quant_desc">Ein separates Demo-Werkzeug: fiktive „physische Alt-Data"-Kategorien, keine echten Flutdaten. Zeigt, wie ein Quant-Terminal aussehen könnte.</p>
+    </div>
+  </div>
+  <div class="notice" data-i18n="quant_disclaimer"><b>Nur Demo:</b> Die „Sensordaten" unten sind künstlich erzeugt (echter Kurs + Zufallsrauschen), keine echte Messung. Das Handelssignal ist ein Zufallsergebnis ohne analytischen Gehalt. Benötigt eine Live-Internetverbindung für den Kursabruf — anders als der Rest dieser Anwendung.</div>
+  <div class="quant-controls">
+    <input id="quant-ticker" class="search-input" list="quant-tickers" data-i18n-ph="quant_ticker_ph" placeholder="Ticker: TSLA, WMT, NKE, XOM, CAT …" data-i18n-al="quant_ticker_al" aria-label="Ticker eingeben">
+    <datalist id="quant-tickers"><option>TSLA</option><option>WMT</option><option>NKE</option><option>XOM</option><option>CAT</option></datalist>
+    <button class="btn-primary" id="quant-scan" data-i18n="quant_scan_btn">Proxys laden</button>
+    <span class="hint-text" id="quant-status"></span>
+  </div>
+  <div class="quant-grid">
+    <div class="rail-block">
+      <h4 data-i18n="quant_proxies_title">Proxys</h4>
+      <div class="proxy-list" id="quant-proxylist"><p class="hint-text" data-i18n="quant_proxies_empty">Ticker eingeben und „Proxys laden" klicken.</p></div>
+    </div>
+    <div class="panel">
+      <div class="panel-head"><h3 id="quant-chart-title" data-i18n="quant_chart_empty_title">Proxy auswählen</h3><span class="meta" id="quant-chart-edge"></span></div>
+      <div class="panel-body">
+        <div id="quant-detail"><p class="quant-chart-empty" data-i18n="quant_chart_empty">Wähle links einen Proxy, um die simulierten Daten zu sehen.</p></div>
+      </div>
+    </div>
+    <div class="rail-block">
+      <h4 data-i18n="quant_signal_title">Ausführungssignal</h4>
+      <div id="quant-signal">
+        <p class="hint-text" data-i18n="quant_signal_empty">Proxys laden, um ein Demo-Signal zu erzeugen.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
 <section class="exposure">
   <div class="exposure-head">
     <div>
@@ -163,4 +197,5 @@
 </footer>
 
 <script type="module" src="static/app.js"></script>
+<script type="module" src="static/quant.js"></script>
 </body></html>

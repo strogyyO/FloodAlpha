@@ -10,6 +10,7 @@ from urllib.parse import urlparse, parse_qs
 
 from model_v2 import FloodModel, DEFAULT_THRESHOLD, DEFAULT_DELTA
 from market import plan, event_study
+from quant_demo import quant_proxies, quant_sensor, quant_signal
 
 ROOT = Path(__file__).resolve().parent
 
@@ -87,6 +88,16 @@ def make_handler(model):
                     return self.send("\ufeff"+out.getvalue(), "text/csv; charset=utf-8", filename="flood_alpha_sites.csv")
                 if parsed.path == "/export/analysis.json":
                     return self.send(json.dumps(model.analyze(threshold, delta, radius), indent=2, allow_nan=False), filename="flood_alpha_analysis.json")
+                if parsed.path in ["/api/quant/proxies", "/api/quant/sensor", "/api/quant/signal"]:
+                    # Illustrative demo terminal, unrelated to the flood/market analysis above.
+                    # Requires live internet access; see quant_demo.py for what is and isn't real here.
+                    q = parse_qs(parsed.query)
+                    ticker = q.get("ticker", [""])[0]
+                    if parsed.path == "/api/quant/proxies":
+                        return self.send(json.dumps(quant_proxies(ticker)))
+                    if parsed.path == "/api/quant/sensor":
+                        return self.send(json.dumps(quant_sensor(ticker, q.get("proxy_id", [""])[0])))
+                    return self.send(json.dumps(quant_signal(ticker)))
                 return self.send("Not found", "text/plain", 404)
             except (ValueError, KeyError) as exc:
                 return self.send(json.dumps({"error": str(exc)}), status=400)
