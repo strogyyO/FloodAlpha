@@ -51,6 +51,13 @@ def make_handler(model):
                 if parsed.path in ["/", "/index.html"]:
                     html=(ROOT/"web"/"index.html").read_text().replace("__DEFAULT_THRESHOLD__",str(round(DEFAULT_THRESHOLD,3)))
                     return self.send(html, "text/html; charset=utf-8")
+                if parsed.path.startswith("/static/"):
+                    static_root = (ROOT/"web"/"static").resolve()
+                    target = (static_root/parsed.path.removeprefix("/static/")).resolve()
+                    mime = {".css": "text/css; charset=utf-8", ".js": "text/javascript; charset=utf-8"}.get(target.suffix)
+                    if not mime or not target.is_relative_to(static_root) or not target.is_file():
+                        return self.send("Not found", "text/plain", 404)
+                    return self.send(target.read_bytes(), mime)
                 if parsed.path == "/health":
                     return self.send(json.dumps({"status": "ok", "model_version":"2.0", "sites": len(model.sites), "data": "real Sentinel-2 + historical OSM", "active_forecast":model.forecast_report["deployment"]}))
                 if parsed.path == "/api/analysis":
