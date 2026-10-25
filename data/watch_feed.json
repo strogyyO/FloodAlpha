@@ -1,0 +1,88 @@
+{
+  "area": "Rio Grande do Sul state / Porto Alegre metropolitan region, including Canoas",
+  "source_note": "Manually curated from public weather-service and news reporting published at the time, each entry cited with its own source and retrieval date. No live news or weather API is called by this app; this is a fixed, archived record used to demonstrate that monitoring public alerts would have flagged this area for satellite tasking before the imagery confirmed flooding.",
+  "retrieved_at": "2026-10-24",
+  "entries": [
+    {
+      "date": "2024-04-22",
+      "type": "weather_alert",
+      "level": "advisory",
+      "headline": "Civil Defense issues meteorological alert for storms and intense rain",
+      "detail": "Rio Grande do Sul state Civil Defense warns of risk of disruption from isolated storms and locally intense rain, with possible flooding and power cuts.",
+      "source": "Wikipedia, \"2024 Rio Grande do Sul floods\" (summarizing state Civil Defense bulletins)",
+      "source_url": "https://en.wikipedia.org/wiki/2024_Rio_Grande_do_Sul_floods"
+    },
+    {
+      "date": "2024-04-27",
+      "type": "weather_alert",
+      "level": "watch",
+      "headline": "First storm system hits the Vale do Rio Pardo region",
+      "detail": "Strong storms bringing high winds and torrential rain begin sweeping into Rio Grande do Sul state.",
+      "source": "\"Analyzing the Effect of an Extreme Weather Event on Telecommunications and IT: Insights from 30 Days of Flooding\" (PAM 2025 preprint)",
+      "source_url": "https://arxiv.org/html/2509.04219v1"
+    },
+    {
+      "date": "2024-04-29",
+      "type": "weather_alert",
+      "level": "warning",
+      "headline": "Red alert issued as rain spreads across almost the entire state",
+      "detail": "Heavy rain and strong winds that began in the north on April 28 spread to nearly the whole state by April 29; a red alert is issued.",
+      "source": "Wikipedia, \"2024 Rio Grande do Sul floods\"; corroborated by the PAM 2025 preprint above",
+      "source_url": "https://en.wikipedia.org/wiki/2024_Rio_Grande_do_Sul_floods"
+    },
+    {
+      "date": "2024-04-30",
+      "type": "weather_alert",
+      "level": "warning",
+      "headline": "INMET reports over 150 mm of rain in 24 hours in parts of the state",
+      "detail": "Brazil's national meteorological institute (INMET) records more than 150 mm of rainfall within 24 hours in parts of Rio Grande do Sul.",
+      "source": "Wikipedia, \"2024 Rio Grande do Sul floods\", citing INMET",
+      "source_url": "https://en.wikipedia.org/wiki/2024_Rio_Grande_do_Sul_floods"
+    },
+    {
+      "date": "2024-05-03",
+      "type": "river_gauge",
+      "level": "emergency",
+      "level_m": 4.77,
+      "headline": "Guaíba river gauge breaks the 1941 flood record",
+      "detail": "The Guaíba gauge in Porto Alegre, a few kilometres from Canoas, reaches 4.77 m, surpassing the historic 1941 flood record of 4.76 m.",
+      "source": "PAM 2025 preprint, \"30 Days of Flooding\"",
+      "source_url": "https://arxiv.org/html/2509.04219v1"
+    },
+    {
+      "date": "2024-05-04",
+      "type": "news",
+      "level": "emergency",
+      "headline": "Canoas residents evacuated by boat and human chain",
+      "detail": "The mayor of Canoas calls for boat owners to assist with search-and-rescue; residents stand shoulder-deep in water and form human chains to pull boats carrying people to safety.",
+      "source": "Associated Press, via Washington Post photo coverage",
+      "source_url": "https://www.washingtonpost.com/world/interactive/2024/brazil-flood-porto-alegre-photos/"
+    },
+    {
+      "date": "2024-05-05",
+      "type": "river_gauge",
+      "level": "emergency",
+      "level_m": 5.33,
+      "headline": "Guaíba hits a new historical peak; state-wide death toll rises sharply",
+      "detail": "The Guaíba reaches a new record level (independently reported as 5.33-5.35 m by different outlets) on Sunday morning. At least 75 dead and 103 missing are reported state-wide, with more than 88,000 people displaced.",
+      "source": "Al Jazeera",
+      "source_url": "https://www.aljazeera.com/news/2024/5/5/at-least-75-killed-more-than-100-others-missing-in-brazil-floods"
+    },
+    {
+      "date": "2024-05-06",
+      "type": "satellite_scene",
+      "level": "satellite",
+      "headline": "Sentinel-2 captures this case study's cloud-free signal scene over Canoas",
+      "detail": "This is the satellite pass this app uses to detect new water. By this date, archived alerts had already stood at \"emergency\" level for three days.",
+      "source": "Copernicus / Sentinel-2 L2A, tile T22JDN (see data/manifest.json)",
+      "source_url": "https://planetarycomputer.microsoft.com/dataset/sentinel-2-l2a"
+    }
+  ],
+  "numeric_discrepancy_note": "Independent outlets reported slightly different Guaíba gauge readings and dates for the same rise (e.g. 4.77 m on May 3 vs. 5.31 m on May 4 vs. 5.33-5.35 m on May 5, across different sources). This app does not reconcile these into one canonical number; each charted level_m value is exactly the figure reported by that entry's own cited source, nothing averaged or interpolated.",
+  "historical_record": {
+    "year": 1941,
+    "level_m": 4.76,
+    "label": "1941 flood record (pre-2024)",
+    "source": "Reported consistently across the cited outlets (Wikipedia, Al Jazeera, PAM 2025 preprint) as the record the 2024 flood surpassed."
+  }
+}

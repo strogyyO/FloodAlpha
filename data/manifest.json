@@ -1,0 +1,132 @@
+{
+  "bbox": [
+    -51.3,
+    -29.91,
+    -51.07,
+    -29.74
+  ],
+  "crs": "EPSG:32722",
+  "transform": [
+    20.0,
+    0.0,
+    470980.0,
+    0.0,
+    -20.0,
+    6710040.0
+  ],
+  "shape": [
+    945,
+    1114
+  ],
+  "downloaded_at": "2026-10-24T20:38:26.499697+00:00",
+  "scenes": {
+    "before": {
+      "id": "S2A_MSIL2A_20240421T133151_R081_T22JDN_20240421T220927",
+      "datetime": "2024-04-21T13:31:51.024000Z",
+      "created": null,
+      "updated": null,
+      "cloud_cover_tile_percent": 0.005541,
+      "url": "https://planetarycomputer.microsoft.com/api/stac/v1/collections/sentinel-2-l2a/items/S2A_MSIL2A_20240421T133151_R081_T22JDN_20240421T220927",
+      "bands": {
+        "B02": {
+          "scale": 0.0001,
+          "offset": -0.1
+        },
+        "B03": {
+          "scale": 0.0001,
+          "offset": -0.1
+        },
+        "B04": {
+          "scale": 0.0001,
+          "offset": -0.1
+        },
+        "B11": {
+          "scale": 0.0001,
+          "offset": -0.1
+        },
+        "SCL": {
+          "scale": 0.0001,
+          "offset": -0.1
+        }
+      }
+    },
+    "event": {
+      "id": "S2B_MSIL2A_20240506T133149_R081_T22JDN_20240506T172300",
+      "datetime": "2024-05-06T13:31:49.024000Z",
+      "created": null,
+      "updated": null,
+      "cloud_cover_tile_percent": 0.021195,
+      "url": "https://planetarycomputer.microsoft.com/api/stac/v1/collections/sentinel-2-l2a/items/S2B_MSIL2A_20240506T133149_R081_T22JDN_20240506T172300",
+      "bands": {
+        "B02": {
+          "scale": 0.0001,
+          "offset": -0.1
+        },
+        "B03": {
+          "scale": 0.0001,
+          "offset": -0.1
+        },
+        "B04": {
+          "scale": 0.0001,
+          "offset": -0.1
+        },
+        "B11": {
+          "scale": 0.0001,
+          "offset": -0.1
+        },
+        "SCL": {
+          "scale": 0.0001,
+          "offset": -0.1
+        }
+      }
+    },
+    "future": {
+      "id": "S2A_MSIL2A_20240521T133151_R081_T22JDN_20240521T221256",
+      "datetime": "2024-05-21T13:31:51.024000Z",
+      "created": null,
+      "updated": null,
+      "cloud_cover_tile_percent": 0.028825,
+      "url": "https://planetarycomputer.microsoft.com/api/stac/v1/collections/sentinel-2-l2a/items/S2A_MSIL2A_20240521T133151_R081_T22JDN_20240521T221256",
+      "bands": {
+        "B02": {
+          "scale": 0.0001,
+          "offset": -0.1
+        },
+        "B03": {
+          "scale": 0.0001,
+          "offset": -0.1
+        },
+        "B04": {
+          "scale": 0.0001,
+          "offset": -0.1
+        },
+        "B11": {
+          "scale": 0.0001,
+          "offset": -0.1
+        },
+        "SCL": {
+          "scale": 0.0001,
+          "offset": -0.1
+        }
+      }
+    }
+  },
+  "osm": {
+    "url": "https://overpass-api.de/api/interpreter",
+    "query": "[out:json][timeout:100][date:\"2024-04-24T00:00:00Z\"];(way[\"landuse\"=\"industrial\"](-29.91,-51.3,-29.74,-51.07);nwr[\"man_made\"=\"works\"](-29.91,-51.3,-29.74,-51.07);way[\"highway\"~\"^(motorway|trunk|primary|secondary|tertiary)$\"](-29.91,-51.3,-29.74,-51.07););out geom;",
+    "snapshot": "2024-04-24T00:00:00Z",
+    "elements": 2696
+  },
+  "checksums_sha256": {
+    "before.npz": "8b7e3737be39c43df7bc157d311f942e4f8536ee272609abd7a280ede47ebee6",
+    "event.npz": "09445c941995c6b922b0e047dce5cc203e0e5c5aa5f5a4dd1d980e1604b63577",
+    "market_SPY.json": "bea6b6e9235ce5ce5a625e00161127b6deca672b6d369d7f07830edf9884eda1",
+    "future.npz": "d612d0494814ca5d036bfb51ff552c1c1f9627aa8f50ac70f2bc9a2ba8675b65",
+    "market_AGCO.json": "d9976894b85222966d4e547f3b48b464dcf48a328e9ba1b9aaa6c90528d53b50",
+    "market_manifest.json": "a4c786c1da7d25910a4af5580733adc5deb1670903c0800d75924d0b02ecd106",
+    "stac_future.json": "5c48d7b6712723339b1230aa4f1ad0decdefd3d4eefa87dc14acab527236b95d",
+    "stac_before.json": "0b456cde13a357229121b4177101104c94c55a321f73be8e1ffcee3350c27bab",
+    "osm.json": "4a68a3ff484d91eb063f1446ade4621f1a9f22cd166d1a6ec294b3be0a17155a",
+    "stac_event.json": "d028b71701653ce1cd6fbd38cd56624d7d91e25cc5b2072659c9dbb40a40a200"
+  }
+}

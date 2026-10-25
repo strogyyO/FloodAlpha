@@ -1,0 +1,287 @@
+{
+  "satellite_persistence": {
+    "tp": 104547,
+    "fp": 53637,
+    "fn": 1179,
+    "tn": 886568,
+    "precision": 0.6609,
+    "recall": 0.9888,
+    "f1": 0.7923,
+    "iou": 0.656,
+    "accuracy": 0.9476,
+    "pixels": 1045931
+  },
+  "no_new_water_baseline": {
+    "tp": 0,
+    "fp": 0,
+    "fn": 105726,
+    "tn": 940205,
+    "precision": null,
+    "recall": 0.0,
+    "f1": 0.0,
+    "iou": 0.0,
+    "accuracy": 0.8989,
+    "pixels": 1045931
+  },
+  "coverage_percent": 99.4,
+  "duration": {
+    "persisted_fraction_at_day15": 0.6609,
+    "dry_threshold_fraction": 0.1,
+    "method": "Single-interval exponential extrapolation from the observed day-0 to day-15 recession of newly flooded pixels. One event, one interval: not a validated forecast of drainage speed.",
+    "status": "extrapolated",
+    "decay_rate_per_day": 0.0276,
+    "estimated_days_to_mostly_dry": 83.4
+  },
+  "site_duration": {
+    "node/1126561765": {
+      "persisted_fraction_at_day15": 0.0,
+      "dry_threshold_fraction": 0.1,
+      "method": "Single-interval exponential extrapolation from the observed day-0 to day-15 recession of newly flooded pixels. One event, one interval: not a validated forecast of drainage speed.",
+      "status": "drained_by_day15",
+      "estimated_days_to_mostly_dry": "<= 15",
+      "note": "All tracked pixels were already dry by the later scene; the exact drainage day is unknown from these three images."
+    },
+    "node/1237764215": {
+      "persisted_fraction_at_day15": 0.0,
+      "dry_threshold_fraction": 0.1,
+      "method": "Single-interval exponential extrapolation from the observed day-0 to day-15 recession of newly flooded pixels. One event, one interval: not a validated forecast of drainage speed.",
+      "status": "drained_by_day15",
+      "estimated_days_to_mostly_dry": "<= 15",
+      "note": "All tracked pixels were already dry by the later scene; the exact drainage day is unknown from these three images."
+    },
+    "node/1277392426": {
+      "persisted_fraction_at_day15": 0.0,
+      "dry_threshold_fraction": 0.1,
+      "method": "Single-interval exponential extrapolation from the observed day-0 to day-15 recession of newly flooded pixels. One event, one interval: not a validated forecast of drainage speed.",
+      "status": "drained_by_day15",
+      "estimated_days_to_mostly_dry": "<= 15",
+      "note": "All tracked pixels were already dry by the later scene; the exact drainage day is unknown from these three images."
+    },
+    "node/7115693431": {
+      "persisted_fraction_at_day15": 0.0,
+      "dry_threshold_fraction": 0.1,
+      "method": "Single-interval exponential extrapolation from the observed day-0 to day-15 recession of newly flooded pixels. One event, one interval: not a validated forecast of drainage speed.",
+      "status": "drained_by_day15",
+      "estimated_days_to_mostly_dry": "<= 15",
+      "note": "All tracked pixels were already dry by the later scene; the exact drainage day is unknown from these three images."
+    },
+    "node/10002993409": {
+      "persisted_fraction_at_day15": 0.0,
+      "dry_threshold_fraction": 0.1,
+      "method": "Single-interval exponential extrapolation from the observed day-0 to day-15 recession of newly flooded pixels. One event, one interval: not a validated forecast of drainage speed.",
+      "status": "drained_by_day15",
+      "estimated_days_to_mostly_dry": "<= 15",
+      "note": "All tracked pixels were already dry by the later scene; the exact drainage day is unknown from these three images."
+    },
+    "way/91827195": {
+      "persisted_fraction_at_day15": 0.7647,
+      "dry_threshold_fraction": 0.1,
+      "method": "Single-interval exponential extrapolation from the observed day-0 to day-15 recession of newly flooded pixels. One event, one interval: not a validated forecast of drainage speed.",
+      "status": "extrapolated",
+      "decay_rate_per_day": 0.0179,
+      "estimated_days_to_mostly_dry": 128.7
+    },
+    "way/97263886": {
+      "persisted_fraction_at_day15": 0.0,
+      "dry_threshold_fraction": 0.1,
+      "method": "Single-interval exponential extrapolation from the observed day-0 to day-15 recession of newly flooded pixels. One event, one interval: not a validated forecast of drainage speed.",
+      "status": "drained_by_day15",
+      "estimated_days_to_mostly_dry": "<= 15",
+      "note": "All tracked pixels were already dry by the later scene; the exact drainage day is unknown from these three images."
+    },
+    "way/97289112": {
+      "persisted_fraction_at_day15": 0.0,
+      "dry_threshold_fraction": 0.1,
+      "method": "Single-interval exponential extrapolation from the observed day-0 to day-15 recession of newly flooded pixels. One event, one interval: not a validated forecast of drainage speed.",
+      "status": "drained_by_day15",
+      "estimated_days_to_mostly_dry": "<= 15",
+      "note": "All tracked pixels were already dry by the later scene; the exact drainage day is unknown from these three images."
+    },
+    "way/97289139": {
+      "persisted_fraction_at_day15": 0.0,
+      "dry_threshold_fraction": 0.1,
+      "method": "Single-interval exponential extrapolation from the observed day-0 to day-15 recession of newly flooded pixels. One event, one interval: not a validated forecast of drainage speed.",
+      "status": "drained_by_day15",
+      "estimated_days_to_mostly_dry": "<= 15",
+      "note": "All tracked pixels were already dry by the later scene; the exact drainage day is unknown from these three images."
+    },
+    "way/97289173": {
+      "persisted_fraction_at_day15": 0.0,
+      "dry_threshold_fraction": 0.1,
+      "method": "Single-interval exponential extrapolation from the observed day-0 to day-15 recession of newly flooded pixels. One event, one interval: not a validated forecast of drainage speed.",
+      "status": "drained_by_day15",
+      "estimated_days_to_mostly_dry": "<= 15",
+      "note": "All tracked pixels were already dry by the later scene; the exact drainage day is unknown from these three images."
+    },
+    "way/100400306": {
+      "persisted_fraction_at_day15": 0.0,
+      "dry_threshold_fraction": 0.1,
+      "method": "Single-interval exponential extrapolation from the observed day-0 to day-15 recession of newly flooded pixels. One event, one interval: not a validated forecast of drainage speed.",
+      "status": "drained_by_day15",
+      "estimated_days_to_mostly_dry": "<= 15",
+      "note": "All tracked pixels were already dry by the later scene; the exact drainage day is unknown from these three images."
+    },
+    "way/235397029": {
+      "persisted_fraction_at_day15": 0.0,
+      "dry_threshold_fraction": 0.1,
+      "method": "Single-interval exponential extrapolation from the observed day-0 to day-15 recession of newly flooded pixels. One event, one interval: not a validated forecast of drainage speed.",
+      "status": "drained_by_day15",
+      "estimated_days_to_mostly_dry": "<= 15",
+      "note": "All tracked pixels were already dry by the later scene; the exact drainage day is unknown from these three images."
+    },
+    "way/290059727": {
+      "persisted_fraction_at_day15": 0.5714,
+      "dry_threshold_fraction": 0.1,
+      "method": "Single-interval exponential extrapolation from the observed day-0 to day-15 recession of newly flooded pixels. One event, one interval: not a validated forecast of drainage speed.",
+      "status": "extrapolated",
+      "decay_rate_per_day": 0.0373,
+      "estimated_days_to_mostly_dry": 61.7
+    },
+    "way/293312075": {
+      "persisted_fraction_at_day15": 0.0,
+      "dry_threshold_fraction": 0.1,
+      "method": "Single-interval exponential extrapolation from the observed day-0 to day-15 recession of newly flooded pixels. One event, one interval: not a validated forecast of drainage speed.",
+      "status": "drained_by_day15",
+      "estimated_days_to_mostly_dry": "<= 15",
+      "note": "All tracked pixels were already dry by the later scene; the exact drainage day is unknown from these three images."
+    },
+    "way/362644594": {
+      "persisted_fraction_at_day15": 0.0,
+      "dry_threshold_fraction": 0.1,
+      "method": "Single-interval exponential extrapolation from the observed day-0 to day-15 recession of newly flooded pixels. One event, one interval: not a validated forecast of drainage speed.",
+      "status": "drained_by_day15",
+      "estimated_days_to_mostly_dry": "<= 15",
+      "note": "All tracked pixels were already dry by the later scene; the exact drainage day is unknown from these three images."
+    },
+    "way/475623590": {
+      "persisted_fraction_at_day15": 0.0,
+      "dry_threshold_fraction": 0.1,
+      "method": "Single-interval exponential extrapolation from the observed day-0 to day-15 recession of newly flooded pixels. One event, one interval: not a validated forecast of drainage speed.",
+      "status": "drained_by_day15",
+      "estimated_days_to_mostly_dry": "<= 15",
+      "note": "All tracked pixels were already dry by the later scene; the exact drainage day is unknown from these three images."
+    },
+    "way/543030286": {
+      "persisted_fraction_at_day15": 0.0306,
+      "dry_threshold_fraction": 0.1,
+      "method": "Single-interval exponential extrapolation from the observed day-0 to day-15 recession of newly flooded pixels. One event, one interval: not a validated forecast of drainage speed.",
+      "status": "extrapolated",
+      "decay_rate_per_day": 0.2324,
+      "estimated_days_to_mostly_dry": 9.9
+    },
+    "way/655464791": {
+      "persisted_fraction_at_day15": 0.0062,
+      "dry_threshold_fraction": 0.1,
+      "method": "Single-interval exponential extrapolation from the observed day-0 to day-15 recession of newly flooded pixels. One event, one interval: not a validated forecast of drainage speed.",
+      "status": "extrapolated",
+      "decay_rate_per_day": 0.3392,
+      "estimated_days_to_mostly_dry": 6.8
+    },
+    "way/813412611": {
+      "persisted_fraction_at_day15": 0.0,
+      "dry_threshold_fraction": 0.1,
+      "method": "Single-interval exponential extrapolation from the observed day-0 to day-15 recession of newly flooded pixels. One event, one interval: not a validated forecast of drainage speed.",
+      "status": "drained_by_day15",
+      "estimated_days_to_mostly_dry": "<= 15",
+      "note": "All tracked pixels were already dry by the later scene; the exact drainage day is unknown from these three images."
+    },
+    "way/894646335": {
+      "persisted_fraction_at_day15": 0.0,
+      "dry_threshold_fraction": 0.1,
+      "method": "Single-interval exponential extrapolation from the observed day-0 to day-15 recession of newly flooded pixels. One event, one interval: not a validated forecast of drainage speed.",
+      "status": "drained_by_day15",
+      "estimated_days_to_mostly_dry": "<= 15",
+      "note": "All tracked pixels were already dry by the later scene; the exact drainage day is unknown from these three images."
+    },
+    "way/972354981": {
+      "persisted_fraction_at_day15": 0.0,
+      "dry_threshold_fraction": 0.1,
+      "method": "Single-interval exponential extrapolation from the observed day-0 to day-15 recession of newly flooded pixels. One event, one interval: not a validated forecast of drainage speed.",
+      "status": "drained_by_day15",
+      "estimated_days_to_mostly_dry": "<= 15",
+      "note": "All tracked pixels were already dry by the later scene; the exact drainage day is unknown from these three images."
+    },
+    "way/972354982": {
+      "persisted_fraction_at_day15": 0.0,
+      "dry_threshold_fraction": 0.1,
+      "method": "Single-interval exponential extrapolation from the observed day-0 to day-15 recession of newly flooded pixels. One event, one interval: not a validated forecast of drainage speed.",
+      "status": "drained_by_day15",
+      "estimated_days_to_mostly_dry": "<= 15",
+      "note": "All tracked pixels were already dry by the later scene; the exact drainage day is unknown from these three images."
+    },
+    "way/1107260530": {
+      "persisted_fraction_at_day15": 0.129,
+      "dry_threshold_fraction": 0.1,
+      "method": "Single-interval exponential extrapolation from the observed day-0 to day-15 recession of newly flooded pixels. One event, one interval: not a validated forecast of drainage speed.",
+      "status": "extrapolated",
+      "decay_rate_per_day": 0.1365,
+      "estimated_days_to_mostly_dry": 16.9
+    },
+    "way/1107260553": {
+      "persisted_fraction_at_day15": 0.3889,
+      "dry_threshold_fraction": 0.1,
+      "method": "Single-interval exponential extrapolation from the observed day-0 to day-15 recession of newly flooded pixels. One event, one interval: not a validated forecast of drainage speed.",
+      "status": "extrapolated",
+      "decay_rate_per_day": 0.063,
+      "estimated_days_to_mostly_dry": 36.6
+    },
+    "way/1107260554": {
+      "persisted_fraction_at_day15": 0.0,
+      "dry_threshold_fraction": 0.1,
+      "method": "Single-interval exponential extrapolation from the observed day-0 to day-15 recession of newly flooded pixels. One event, one interval: not a validated forecast of drainage speed.",
+      "status": "drained_by_day15",
+      "estimated_days_to_mostly_dry": "<= 15",
+      "note": "All tracked pixels were already dry by the later scene; the exact drainage day is unknown from these three images."
+    },
+    "way/1107260558": {
+      "persisted_fraction_at_day15": 0.0,
+      "dry_threshold_fraction": 0.1,
+      "method": "Single-interval exponential extrapolation from the observed day-0 to day-15 recession of newly flooded pixels. One event, one interval: not a validated forecast of drainage speed.",
+      "status": "drained_by_day15",
+      "estimated_days_to_mostly_dry": "<= 15",
+      "note": "All tracked pixels were already dry by the later scene; the exact drainage day is unknown from these three images."
+    },
+    "way/1107260589": {
+      "persisted_fraction_at_day15": 0.1467,
+      "dry_threshold_fraction": 0.1,
+      "method": "Single-interval exponential extrapolation from the observed day-0 to day-15 recession of newly flooded pixels. One event, one interval: not a validated forecast of drainage speed.",
+      "status": "extrapolated",
+      "decay_rate_per_day": 0.128,
+      "estimated_days_to_mostly_dry": 18.0
+    },
+    "way/1107260591": {
+      "persisted_fraction_at_day15": 0.3297,
+      "dry_threshold_fraction": 0.1,
+      "method": "Single-interval exponential extrapolation from the observed day-0 to day-15 recession of newly flooded pixels. One event, one interval: not a validated forecast of drainage speed.",
+      "status": "extrapolated",
+      "decay_rate_per_day": 0.074,
+      "estimated_days_to_mostly_dry": 31.1
+    },
+    "way/1107267435": {
+      "persisted_fraction_at_day15": 0.0,
+      "dry_threshold_fraction": 0.1,
+      "method": "Single-interval exponential extrapolation from the observed day-0 to day-15 recession of newly flooded pixels. One event, one interval: not a validated forecast of drainage speed.",
+      "status": "drained_by_day15",
+      "estimated_days_to_mostly_dry": "<= 15",
+      "note": "All tracked pixels were already dry by the later scene; the exact drainage day is unknown from these three images."
+    },
+    "way/1107267443": {
+      "persisted_fraction_at_day15": 0.0,
+      "dry_threshold_fraction": 0.1,
+      "method": "Single-interval exponential extrapolation from the observed day-0 to day-15 recession of newly flooded pixels. One event, one interval: not a validated forecast of drainage speed.",
+      "status": "drained_by_day15",
+      "estimated_days_to_mostly_dry": "<= 15",
+      "note": "All tracked pixels were already dry by the later scene; the exact drainage day is unknown from these three images."
+    },
+    "way/1250679471": {
+      "persisted_fraction_at_day15": 0.0,
+      "dry_threshold_fraction": 0.1,
+      "method": "Single-interval exponential extrapolation from the observed day-0 to day-15 recession of newly flooded pixels. One event, one interval: not a validated forecast of drainage speed.",
+      "status": "drained_by_day15",
+      "estimated_days_to_mostly_dry": "<= 15",
+      "note": "All tracked pixels were already dry by the later scene; the exact drainage day is unknown from these three images."
+    }
+  },
+  "target": "Water on 21 May, on areas not classified as water on 21 April",
+  "limitations": "Same sensor and water index as the target: not an independent ground truth. One event, no claim about general forecast quality. No comparison against a strong weather/gauge model."
+}

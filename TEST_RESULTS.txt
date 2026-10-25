@@ -1,0 +1,20 @@
+test_components_do_not_retain_background (test_core.NumericalTests.test_components_do_not_retain_background) ... ok
+test_confusion_and_undefined_precision (test_core.NumericalTests.test_confusion_and_undefined_precision) ... ok
+test_recession_estimate_bounds_and_monotonicity (test_core.NumericalTests.test_recession_estimate_bounds_and_monotonicity) ... ok
+test_reject_invalid_parameters (test_core.NumericalTests.test_reject_invalid_parameters) ... ok
+test_duration_extrapolation_is_present_and_consistent (test_core.RealDataTests.test_duration_extrapolation_is_present_and_consistent) ... ok
+test_event_result_does_not_use_future_scene (test_core.RealDataTests.test_event_result_does_not_use_future_scene) ... ok
+test_financial_profile_matches_pre_event_filing (test_core.RealDataTests.test_financial_profile_matches_pre_event_filing) ... ok
+test_historical_inputs_and_valid_coverage (test_core.RealDataTests.test_historical_inputs_and_valid_coverage) ... ok
+test_integrity (test_core.RealDataTests.test_integrity) ... ok
+test_market_prices_and_cost_accounting (test_core.RealDataTests.test_market_prices_and_cost_accounting) ... ok
+test_no_position_when_signal_not_triggered (test_core.RealDataTests.test_no_position_when_signal_not_triggered) ... ok
+test_pngs (test_core.RealDataTests.test_pngs) ... ok
+test_real_spatial_analysis_and_holdout (test_core.RealDataTests.test_real_spatial_analysis_and_holdout) ... ok
+test_feed_is_sorted_and_cites_sources (test_core.WatchFeedTests.test_feed_is_sorted_and_cites_sources) ... ok
+test_peak_level_precedes_satellite_signal (test_core.WatchFeedTests.test_peak_level_precedes_satellite_signal) ... ok
+
+----------------------------------------------------------------------
+Ran 15 tests in 2.271s
+
+OK

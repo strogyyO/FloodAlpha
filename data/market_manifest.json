@@ -1,0 +1,10 @@
+{
+  "retrieved_at": "2026-10-24T20:42:53.649518+00:00",
+  "source": "Yahoo Finance chart API",
+  "currency": "USD",
+  "company_source": "https://www.sec.gov/Archives/edgar/data/880266/000088026624000013/agco-20231231.htm",
+  "tickers": {
+    "AGCO": "https://query1.finance.yahoo.com/v8/finance/chart/AGCO?period1=1713139200&period2=1718409600&interval=1d&events=div%2Csplits",
+    "SPY": "https://query1.finance.yahoo.com/v8/finance/chart/SPY?period1=1713139200&period2=1718409600&interval=1d&events=div%2Csplits"
+  }
+}

@@ -1,0 +1,245 @@
+{
+  "plan": {
+    "ticker": "AGCO",
+    "site_id": "way/475623590",
+    "company_source": "https://www.sec.gov/Archives/edgar/data/880266/000088026624000013/agco-20231231.htm",
+    "financial_profile": {
+      "ticker": "AGCO",
+      "fiscal_year": 2023,
+      "filed_before_event": true,
+      "source": "AGCO press release, \"AGCO Reports Fourth Quarter and Full Year Results\", 6 February 2024 (same regional segment figures as the FY2023 Form 10-K cited in company_source)",
+      "source_url": "https://news.agcocorp.com/2024-02-06-AGCO-REPORTS-FOURTH-QUARTER-AND-FULL-YEAR-RESULTS",
+      "net_sales_usd_million": {
+        "north_america": 3752.7,
+        "south_america": 2234.2,
+        "europe_middle_east": 7540.5,
+        "asia_pacific_africa": 885.0,
+        "total": 14412.4
+      },
+      "south_america_share_percent": 15.5,
+      "south_america_yoy_change_percent": 5.3,
+      "note": "This is AGCO's whole South America regional segment, not a Canoas-facility-specific figure -- AGCO does not publicly break out single-facility revenue. It shows the financial scale of the region containing the exposed site, not that site's own output, and was published before the flood (6 Feb 2024), so it is not itself a reaction to the event."
+    },
+    "rule": "If >=5% direct exposure or >=10% wet access roads: hypothetically short AGCO and long SPY, $1 initial notional each; otherwise no position.",
+    "triggered": true,
+    "action": "Candidate position: short AGCO / long SPY",
+    "signal_date": "2024-05-06",
+    "entry_date": "2024-05-07",
+    "exit_date": "2024-05-21",
+    "assumptions": "Entry at the next trading day's open, exit at the close on 21 May. No real order is placed. Exposure is not proof of a company outage. SPY is a rough market comparison, not a beta/sector hedge."
+  },
+  "prices": {
+    "AGCO": {
+      "entry_open": 115.98999786376953,
+      "exit_close": 108.13999938964844,
+      "total_return": -0.0436244380318385,
+      "rows": [
+        {
+          "date": "2024-05-07",
+          "open": 115.98999786376953,
+          "close": 117.08000183105469,
+          "total_return": 0.009397396218296064
+        },
+        {
+          "date": "2024-05-08",
+          "open": 116.38999938964844,
+          "close": 113.93000030517578,
+          "total_return": -0.017760131015893466
+        },
+        {
+          "date": "2024-05-09",
+          "open": 113.73999786376953,
+          "close": 116.29000091552734,
+          "total_return": 0.0025864562228043717
+        },
+        {
+          "date": "2024-05-10",
+          "open": 117.02999877929688,
+          "close": 116.05000305175781,
+          "total_return": 0.0005173307103493308
+        },
+        {
+          "date": "2024-05-13",
+          "open": 116.26000213623047,
+          "close": 116.25,
+          "total_return": 0.002241591008009516
+        },
+        {
+          "date": "2024-05-14",
+          "open": 117.16999816894531,
+          "close": 117.27999877929688,
+          "total_return": 0.013621872097825692
+        },
+        {
+          "date": "2024-05-15",
+          "open": 117.97000122070312,
+          "close": 118.04000091552734,
+          "total_return": 0.020174179626299766
+        },
+        {
+          "date": "2024-05-16",
+          "open": 114.83000183105469,
+          "close": 112.02999877929688,
+          "total_return": -0.03164065136705216
+        },
+        {
+          "date": "2024-05-17",
+          "open": 110.0,
+          "close": 110.0199966430664,
+          "total_return": -0.027416167594364837
+        },
+        {
+          "date": "2024-05-20",
+          "open": 109.9800033569336,
+          "close": 110.11000061035156,
+          "total_return": -0.02664020441699789
+        },
+        {
+          "date": "2024-05-21",
+          "open": 110.0999984741211,
+          "close": 108.13999938964844,
+          "total_return": -0.0436244380318385
+        }
+      ]
+    },
+    "SPY": {
+      "entry_open": 517.5599975585938,
+      "exit_close": 531.3599853515625,
+      "total_return": 0.026663551777697875,
+      "rows": [
+        {
+          "date": "2024-05-07",
+          "open": 517.5599975585938,
+          "close": 517.1400146484375,
+          "total_return": -0.0008114670997321486
+        },
+        {
+          "date": "2024-05-08",
+          "open": 515.260009765625,
+          "close": 517.1900024414062,
+          "total_return": -0.0007148835283499905
+        },
+        {
+          "date": "2024-05-09",
+          "open": 517.3800048828125,
+          "close": 520.1699829101562,
+          "total_return": 0.0050428652984662314
+        },
+        {
+          "date": "2024-05-10",
+          "open": 521.8099975585938,
+          "close": 520.8400268554688,
+          "total_return": 0.006337486112426343
+        },
+        {
+          "date": "2024-05-13",
+          "open": 522.5599975585938,
+          "close": 520.9099731445312,
+          "total_return": 0.006472632355166213
+        },
+        {
+          "date": "2024-05-14",
+          "open": 521.1099853515625,
+          "close": 523.2999877929688,
+          "total_return": 0.011090482768087514
+        },
+        {
+          "date": "2024-05-15",
+          "open": 525.8300170898438,
+          "close": 529.780029296875,
+          "total_return": 0.023610850521533597
+        },
+        {
+          "date": "2024-05-16",
+          "open": 529.8800048828125,
+          "close": 528.6900024414062,
+          "total_return": 0.021504762607841336
+        },
+        {
+          "date": "2024-05-17",
+          "open": 528.8099975585938,
+          "close": 529.4500122070312,
+          "total_return": 0.022973210264557616
+        },
+        {
+          "date": "2024-05-20",
+          "open": 529.5700073242188,
+          "close": 530.0599975585938,
+          "total_return": 0.024151789278468835
+        },
+        {
+          "date": "2024-05-21",
+          "open": 529.280029296875,
+          "close": 531.3599853515625,
+          "total_return": 0.026663551777697875
+        }
+      ]
+    }
+  },
+  "curve": [
+    {
+      "date": "2024-05-07",
+      "gross_return_on_gross_exposure": -0.005104431659014107
+    },
+    {
+      "date": "2024-05-08",
+      "gross_return_on_gross_exposure": 0.008522623743771737
+    },
+    {
+      "date": "2024-05-09",
+      "gross_return_on_gross_exposure": 0.0012282045378309298
+    },
+    {
+      "date": "2024-05-10",
+      "gross_return_on_gross_exposure": 0.0029100777010385064
+    },
+    {
+      "date": "2024-05-13",
+      "gross_return_on_gross_exposure": 0.0021155206735783486
+    },
+    {
+      "date": "2024-05-14",
+      "gross_return_on_gross_exposure": -0.001265694664869089
+    },
+    {
+      "date": "2024-05-15",
+      "gross_return_on_gross_exposure": 0.0017183354476169154
+    },
+    {
+      "date": "2024-05-16",
+      "gross_return_on_gross_exposure": 0.026572706987446747
+    },
+    {
+      "date": "2024-05-17",
+      "gross_return_on_gross_exposure": 0.025194688929461227
+    },
+    {
+      "date": "2024-05-20",
+      "gross_return_on_gross_exposure": 0.02539599684773336
+    },
+    {
+      "date": "2024-05-21",
+      "gross_return_on_gross_exposure": 0.03514399490476819
+    }
+  ],
+  "gross_pnl_usd_per_2usd": 0.07028798980953638,
+  "net_pnl_usd_per_2usd": 0.06437018159035829,
+  "net_return_on_gross_exposure": 0.032185090795179144,
+  "costs": {
+    "transaction_usd": 0.004,
+    "borrow_usd": 0.0019178082191780824,
+    "per_execution_bps": 10,
+    "annual_borrow_rate": 0.05
+  },
+  "limitations": "A retrospectively chosen case study. No evidence of causal price impact or tradable alpha; no news/weather comparison. Historical data availability and borrowability are not demonstrated. Funding, variable borrow rates, taxes and real execution are not modeled.",
+  "source": {
+    "retrieved_at": "2026-10-24T20:42:53.649518+00:00",
+    "source": "Yahoo Finance chart API",
+    "currency": "USD",
+    "company_source": "https://www.sec.gov/Archives/edgar/data/880266/000088026624000013/agco-20231231.htm",
+    "tickers": {
+      "AGCO": "https://query1.finance.yahoo.com/v8/finance/chart/AGCO?period1=1713139200&period2=1718409600&interval=1d&events=div%2Csplits",
+      "SPY": "https://query1.finance.yahoo.com/v8/finance/chart/SPY?period1=1713139200&period2=1718409600&interval=1d&events=div%2Csplits"
+    }
+  }
+}
